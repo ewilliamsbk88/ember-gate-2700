@@ -1,0 +1,353 @@
+<!DOCTYPE html><html lang="en"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 4, Day C — The Stream</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    .pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-950 p-6">
+  <div id="app" class="max-w-2xl mx-auto"></div>
+
+  <script>
+    let stage = 0;
+    let showOutcome = false;
+
+    const streamMoments = [
+      {
+        time: "0:00 - 2:00",
+        title: "The Opening",
+        description: "Priya welcomes viewers. Chat is moving fast—a mix of supportive regulars and skeptics. Someone almost immediately asks 'so was the leak real or what?'",
+        pressure: "low",
+        decision: "How does Priya handle the leak question in the first two minutes?"
+      },
+      {
+        time: "12:00",
+        title: "First Combat Encounter",
+        description: "The gameplay looks good. Combat is fluid. Chat is cautiously positive. Then a viewer asks to see the multiplayer—'that's what was broken, right?'",
+        pressure: "medium",
+        decision: "Do you pivot to multiplayer now, or stick to the planned single-player section?"
+      },
+      {
+        time: "28:00",
+        title: "The Glitch",
+        description: "During a cutscene, the camera clips through a wall for about two seconds. Chat lights up with 'SCAM CONFIRMED' jokes. Most seem to be joking. Some don't.",
+        pressure: "medium",
+        decision: "Does Priya acknowledge it, joke about it, or pretend it didn't happen?"
+      },
+      {
+        time: "41:00",
+        title: "Multiplayer Time",
+        description: "Priya transitions to multiplayer. Alex is playing on a second account from the office. The netcode holds. Combat is smooth. Chat is impressed.",
+        pressure: "low",
+        decision: "This is going well. Do you extend the multiplayer demo or stick to the plan?"
+      },
+      {
+        time: "52:00",
+        title: "The Disconnect",
+        description: "Alex's character freezes for three seconds, then disconnects. Chat explodes. 'NETCODE BTW' and 'this is what they delayed for?' flood the screen.",
+        pressure: "high",
+        decision: "The nightmare scenario is happening on camera. What does Priya say in the next 10 seconds?"
+      },
+      {
+        time: "53:00 - 60:00",
+        title: "The Recovery",
+        description: "Alex reconnects within 30 seconds. Priya has to fill the gap and then recover the narrative. The last 7 minutes of the stream will define how this is remembered.",
+        pressure: "high",
+        decision: "How do you close the stream? What's the final message?"
+      }
+    ];
+
+    const functionDebriefs = [
+      {
+        function: "Leadership",
+        color: "amber",
+        question: "What will you tell Diana tomorrow?",
+        subquestions: [
+          "Was this a success? How do you define that?",
+          "What did you learn about the team's ability to handle pressure?",
+          "What would you do differently if you had to stream again?"
+        ]
+      },
+      {
+        function: "Development",
+        color: "blue",
+        question: "What happened with the netcode—and what does it mean for launch?",
+        subquestions: [
+          "Was the disconnect a fluke or a symptom?",
+          "Are you confident in launching next week?",
+          "What do you tell the team about what happened?"
+        ]
+      },
+      {
+        function: "Community",
+        color: "purple",
+        question: "How do you shape the narrative going forward?",
+        subquestions: [
+          "The disconnect is being clipped and shared. Can you do anything about that?",
+          "What's your follow-up content strategy for the next week?",
+          "Did the stream talking points work? What would you change?"
+        ]
+      },
+      {
+        function: "Operations",
+        color: "green",
+        question: "How did the team perform under pressure?",
+        subquestions: [
+          "Did your contingency plans work?",
+          "What gaps did you discover?",
+          "How is the team feeling after tonight?"
+        ]
+      }
+    ];
+
+    const pressureColors = {
+      low: "bg-green-500",
+      medium: "bg-yellow-500",
+      high: "bg-red-500"
+    };
+
+    const colorClasses = {
+      amber: { bg: "bg-amber-500/20", border: "border-amber-500", text: "text-amber-400" },
+      blue: { bg: "bg-blue-500/20", border: "border-blue-500", text: "text-blue-400" },
+      purple: { bg: "bg-purple-500/20", border: "border-purple-500", text: "text-purple-400" },
+      green: { bg: "bg-green-500/20", border: "border-green-500", text: "text-green-400" }
+    };
+
+    function handleNext() {
+      if (stage < 6) {
+        stage++;
+        render();
+      }
+    }
+
+    function handleShowOutcome() {
+      showOutcome = true;
+      render();
+    }
+
+    function handleReset() {
+      stage = 0;
+      showOutcome = false;
+      render();
+    }
+
+    function render() {
+      const app = document.getElementById('app');
+      
+      let html = `
+        <!-- Header -->
+        <div class="mb-6">
+          <div class="flex items-center gap-2 text-gray-500 mb-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span class="text-sm font-medium uppercase tracking-wide">Week 4, Day C — Ember Gate Studios</span>
+          </div>
+          <h1 class="text-3xl font-bold text-white mb-1">The Stream</h1>
+          <p class="text-gray-400">Friday, 7:00 PM — Live in 3... 2... 1...</p>
+        </div>
+      `;
+
+      // Stage 0: Go Live
+      if (stage === 0) {
+        html += `
+          <div class="flex flex-col items-center justify-center py-16">
+            <div class="relative">
+              <div class="absolute inset-0 bg-red-500 rounded-full blur-xl opacity-50 pulse-glow"></div>
+              <div class="relative w-24 h-24 rounded-full bg-red-500 flex items-center justify-center">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+              </div>
+            </div>
+            <p class="text-white text-2xl font-bold mt-6 mb-2">We're Live</p>
+            <p class="text-gray-400 text-center mb-8 max-w-md">4,200 viewers. Chat is moving fast. Priya takes a breath and starts talking.</p>
+            <button onclick="handleNext()" class="flex items-center gap-2 bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors cursor-pointer">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Start Stream Simulation
+            </button>
+          </div>
+        `;
+      }
+
+      // Stages 1-6: Stream Moments
+      if (stage >= 1 && stage <= 6 && !showOutcome) {
+        const currentMoment = streamMoments[stage - 1];
+        
+        html += `
+          <!-- Progress Bar -->
+          <div class="bg-gray-800 rounded-full h-2 mb-6 overflow-hidden">
+            <div class="bg-gradient-to-r from-purple-500 to-red-500 h-full transition-all duration-500" style="width: ${(stage / 6) * 100}%"></div>
+          </div>
+
+          <!-- Current Moment -->
+          <div class="mb-6">
+            <div class="bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
+              <div class="bg-gray-800 px-5 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-3 h-3 rounded-full ${pressureColors[currentMoment.pressure]} animate-pulse"></div>
+                  <span class="text-white font-mono">${currentMoment.time}</span>
+                </div>
+                <span class="text-gray-400 text-sm uppercase tracking-wide">${currentMoment.pressure} pressure</span>
+              </div>
+              <div class="p-5">
+                <h3 class="text-white font-bold text-lg mb-3">${currentMoment.title}</h3>
+                <p class="text-gray-300 mb-4">${currentMoment.description}</p>
+                <div class="bg-purple-500/10 border border-purple-500/50 rounded-lg p-4">
+                  <p class="text-purple-400 font-semibold text-sm mb-1">The Decision Point</p>
+                  <p class="text-gray-300">${currentMoment.decision}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Previous Moments
+        if (stage > 1) {
+          html += `
+            <div class="space-y-2 mb-6">
+              <p class="text-gray-500 text-sm uppercase tracking-wide">Previous moments</p>
+              ${streamMoments.slice(0, stage - 1).map((moment, i) => `
+                <div class="bg-gray-900/50 rounded-lg px-4 py-2 flex items-center gap-2">
+                  <div class="w-2 h-2 rounded-full ${pressureColors[moment.pressure]}"></div>
+                  <span class="text-gray-400 text-sm">${moment.time}</span>
+                  <span class="text-gray-500">—</span>
+                  <span class="text-gray-300 text-sm">${moment.title}</span>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }
+
+        // Navigation
+        if (stage < 6) {
+          html += `
+            <div class="flex justify-center">
+              <button onclick="handleNext()" class="flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors cursor-pointer">
+                Next Moment
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          `;
+        } else {
+          html += `
+            <div class="flex justify-center">
+              <button onclick="handleShowOutcome()" class="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors cursor-pointer">
+                Stream Ends — See Results
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          `;
+        }
+
+        // Progress dots
+        html += `
+          <div class="mt-6 flex justify-center gap-2">
+            ${[1, 2, 3, 4, 5, 6].map(s => `
+              <div class="w-2 h-2 rounded-full transition-colors ${s <= stage ? 'bg-white' : 'bg-gray-700'}"></div>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      // Outcome
+      if (showOutcome && stage === 6) {
+        html += `
+          <!-- Results -->
+          <div class="bg-gradient-to-b from-gray-900 to-gray-950 rounded-xl border border-gray-700 p-6 mb-6">
+            <div class="flex items-center gap-2 text-green-400 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+              <span class="font-bold text-lg">Stream Complete</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="bg-black/30 rounded-lg p-3">
+                <p class="text-gray-500 text-xs uppercase tracking-wide mb-1">Peak Viewers</p>
+                <p class="text-white font-bold text-xl">4,200</p>
+              </div>
+              <div class="bg-black/30 rounded-lg p-3">
+                <p class="text-gray-500 text-xs uppercase tracking-wide mb-1">Sentiment</p>
+                <p class="text-green-400 font-bold text-xl">65% positive</p>
+              </div>
+            </div>
+            <div class="space-y-2 text-sm">
+              <p class="text-gray-300"><span class="text-white font-medium">Most-shared clip:</span> The disconnect moment—but second-most-shared was the recovery</p>
+              <p class="text-gray-300"><span class="text-white font-medium">Headlines:</span> "Shattered Vigil Stream Shows Promise Despite Technical Hiccup" — PC Gamer</p>
+              <p class="text-gray-300"><span class="text-white font-medium">The YouTuber:</span> Posted a response titled "Okay, Credit Where It's Due..." (mostly positive)</p>
+              <p class="text-gray-300"><span class="text-white font-medium">Preorders:</span> +47 in the 24 hours after stream (first net positive day in two weeks)</p>
+            </div>
+          </div>
+
+          <!-- The Verdict -->
+          <div class="bg-gray-900 rounded-lg p-5 border border-gray-800 mb-6">
+            <p class="text-white font-semibold mb-3">The Verdict</p>
+            <p class="text-gray-300 text-sm leading-relaxed">It wasn't perfect. The disconnect happened, and thousands of people saw it. But what people remember is what happened after—Priya's calm acknowledgment, the quick recovery, the honest framing. The stream didn't prove the game was flawless. It proved the team could handle adversity publicly, which might matter more.</p>
+          </div>
+
+          <!-- Debrief Questions -->
+          <div class="space-y-4 mb-6">
+            <p class="text-white font-semibold">Post-Stream Debrief</p>
+            ${functionDebriefs.map(debrief => {
+              const colors = colorClasses[debrief.color];
+              return `
+                <div class="rounded-xl border ${colors.border} ${colors.bg} p-4">
+                  <p class="${colors.text} font-semibold mb-2">${debrief.function}</p>
+                  <p class="text-white font-medium mb-2">${debrief.question}</p>
+                  <ul class="space-y-1">
+                    ${debrief.subquestions.map(q => `
+                      <li class="text-gray-400 text-sm">→ ${q}</li>
+                    `).join('')}
+                  </ul>
+                </div>
+              `;
+            }).join('')}
+          </div>
+
+          <!-- Course Wrap -->
+          <div class="bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl border border-purple-500/50 p-6 mb-6">
+            <div class="flex items-center gap-2 mb-4">
+              <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <p class="text-white font-bold text-lg">End of Simulation</p>
+            </div>
+            <p class="text-gray-300 leading-relaxed mb-4">Over four weeks, students have navigated a cascading crisis: a technical failure, a key employee departure, a public leak, a hostile media narrative, and a high-stakes live event.</p>
+            <p class="text-gray-300 leading-relaxed mb-4">They've written internal memos, external statements, investor updates, press responses, talking points, and contingency plans. They've learned that professional communication isn't about finding the right words—it's about understanding your audience, acknowledging constraints, and making choices you can defend.</p>
+            <p class="text-white font-medium">Launch is in one week. But that's a story for another course.</p>
+          </div>
+
+          <div class="flex justify-center">
+            <button onclick="handleReset()" class="bg-gray-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors cursor-pointer">
+              Reset Presentation
+            </button>
+          </div>
+        `;
+      }
+
+      app.innerHTML = html;
+    }
+
+    // Initial render
+    render();
+  </script>
+
+
+</body></html>

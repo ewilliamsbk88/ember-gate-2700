@@ -1,0 +1,286 @@
+<!DOCTYPE html><html><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta http-equiv="x-dns-prefetch-control" content="off"><script src="https://puc.poecdn.net/authenticated_preview_page/standard.3ef2c256959faf5a756d.js"></script>
+    <meta charset="utf-8">
+    <title>Poe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script><meta name="x-poe-allow-downloads" content="true"><meta name="x-poe-datastore-behavior" content="disabled"><script src="https://puc.poecdn.net/authenticated_preview_page/tw.b9024aecac666455e183.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script><script>Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _react = require('react'); var _react2 = _interopRequireDefault(_react);
+var _lucidereact = require('lucide-react');
+
+function Week3DayA() {
+  const [stage, setStage] = _react2.default.useState(0);
+
+  const handleNext = () => {
+    if (stage < 3) setStage(stage + 1);
+  };
+
+  const handleReset = () => setStage(0);
+
+  const viralMetrics = [
+    { label: "YouTube Video Views", value: "47,000", change: "+32,000 in 6 hours", color: "red" },
+    { label: "Twitter Mentions", value: "1,200+", change: "Trending in gaming circles", color: "blue" },
+    { label: "Discord Active Users", value: "892", change: "4x normal activity", color: "purple" },
+    { label: "Press Inquiries", value: "7", change: "Including Kotaku, PC Gamer", color: "amber" }
+  ];
+
+  const sources = [
+    {
+      icon: _react2.default.createElement(_lucidereact.Youtube, { className: "w-5 h-5" ,} ),
+      platform: "YouTube",
+      source: "TruthInGaming (203K subscribers)",
+      time: "Posted 8 hours ago",
+      color: "red",
+      title: "I Played the LEAKED Shattered Vigil Build—Is This Game a SCAM?",
+      content: "The video shows 12 minutes of buggy gameplay from the leaked build. Placeholder textures, broken animations, placeholder text that says 'QUEST DIALOGUE HERE.' The creator's thesis: Ember Gate has been lying about how far along the game is. 'They delayed for netcode? Look at this. This game is months—maybe years—from being ready.'",
+      engagement: "2,847 comments, mostly negative. Top comment: 'Glad I canceled my preorder.'"
+    },
+    {
+      icon: _react2.default.createElement(_lucidereact.Twitter, { className: "w-5 h-5" ,} ),
+      platform: "Twitter/X",
+      source: "Gaming community",
+      time: "Ongoing",
+      color: "blue",
+      title: "Screenshots spreading rapidly",
+      content: "The worst screenshots from the leaked build are being shared without context. A broken character model. A placeholder boss labeled 'BIG_ENEMY_02.' A debug menu accidentally left in. Each screenshot is being treated as evidence of a scam, not as an old development build.",
+      engagement: "The hashtag #ShatteredVigilScam has 400+ posts."
+    },
+    {
+      icon: _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-5 h-5" ,} ),
+      platform: "Discord",
+      source: "Ember Gate Community Server",
+      time: "Right now",
+      color: "purple",
+      title: "The community is tearing itself apart",
+      content: "Defenders are arguing the leaked build is obviously old. Critics are demanding refunds. And in the middle of it all, someone keeps asking: 'How did this even leak? Wasn't Marcus fired?' The mods are overwhelmed. They're asking for guidance.",
+      engagement: "Three mods have DM'd Priya asking what they're allowed to say."
+    },
+    {
+      icon: _react2.default.createElement(_lucidereact.Mail, { className: "w-5 h-5" ,} ),
+      platform: "Email",
+      source: "Kotaku journalist",
+      time: "9:15 AM",
+      color: "amber",
+      title: "Press inquiry",
+      content: "\"Hi, I'm working on a story about the Shattered Vigil leak. I have a few questions: 1) Can you confirm the authenticity of the leaked build? 2) How did it get out? 3) Is there any connection to the recent employee termination? I'm on deadline—hoping to hear back by 3 PM today.\"",
+      engagement: "Similar emails from PC Gamer, Eurogamer, and two smaller outlets."
+    }
+  ];
+
+  const colorClasses = {
+    red: { bg: "bg-red-500/20", border: "border-red-500", text: "text-red-400", solid: "bg-red-500" },
+    blue: { bg: "bg-blue-500/20", border: "border-blue-500", text: "text-blue-400", solid: "bg-blue-500" },
+    purple: { bg: "bg-purple-500/20", border: "border-purple-500", text: "text-purple-400", solid: "bg-purple-500" },
+    amber: { bg: "bg-amber-500/20", border: "border-amber-500", text: "text-amber-400", solid: "bg-amber-500" }
+  };
+
+  return (
+    _react2.default.createElement('div', { className: "min-h-screen bg-gray-950 p-6"  ,}
+      , _react2.default.createElement('div', { className: "max-w-2xl mx-auto" ,}
+        /* Header */
+        , _react2.default.createElement('div', { className: "mb-6",}
+          , _react2.default.createElement('div', { className: "flex items-center gap-2 text-red-500 mb-2"    ,}
+            , _react2.default.createElement(_lucidereact.AlertTriangle, { className: "w-4 h-4" ,} )
+            , _react2.default.createElement('span', { className: "text-sm font-medium uppercase tracking-wide"   ,}, "Week 3, Day A — Ember Gate Studios"       )
+          )
+          , _react2.default.createElement('h1', { className: "text-3xl font-bold text-white mb-1"   ,}, "The Leak Goes Viral"   )
+          , _react2.default.createElement('p', { className: "text-gray-400",}, "Tuesday, 10:30 AM — 14 hours since the video posted"         )
+        )
+
+        /* Stage 0: The Morning */
+        , stage === 0 && (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-6 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('p', { className: "text-gray-300 leading-relaxed mb-4"  ,}, "You woke up to 47 Discord notifications and a text from Priya: \"Check Twitter. Now.\""
+
+              )
+              , _react2.default.createElement('p', { className: "text-gray-300 leading-relaxed mb-4"  ,}, "The YouTuber's video went up around midnight. By morning, it had 15,000 views. Now it's at 47,000 and climbing. Gaming Twitter picked it up. Screenshots are everywhere. And the narrative is already set:"
+
+              )
+              , _react2.default.createElement('p', { className: "text-xl text-white font-bold text-center py-4 italic"     ,}, "\"Ember Gate lied about their game. The delay was a cover-up.\""
+
+              )
+              , _react2.default.createElement('p', { className: "text-gray-300 leading-relaxed" ,}, "It doesn't matter that the leaked build is three months old. It doesn't matter that every game looks rough in early development. The internet has decided what this means."
+
+              )
+            )
+
+            /* Viral Metrics */
+            , _react2.default.createElement('div', { className: "grid grid-cols-2 gap-3 mb-8"   ,}
+              , viralMetrics.map((metric, index) => (
+                _react2.default.createElement('div', { key: index, className: "bg-gray-900 rounded-lg p-4 border border-gray-800"    ,}
+                  , _react2.default.createElement('p', { className: "text-gray-500 text-xs uppercase tracking-wide mb-1"    ,}, metric.label)
+                  , _react2.default.createElement('p', { className: `text-2xl font-bold text-${metric.color}-400`,}, metric.value)
+                  , _react2.default.createElement('p', { className: "text-gray-500 text-xs mt-1"  ,}, metric.change)
+                )
+              ))
+            )
+
+            , _react2.default.createElement('div', { className: "flex justify-center" ,}
+              , _react2.default.createElement('button', {
+                onClick: handleNext,
+                className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
+, "See the Sources"
+
+                , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
+              )
+            )
+          )
+        )
+
+        /* Stage 1: The Sources */
+        , stage === 1 && (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('div', { className: "space-y-4 mb-8" ,}
+              , sources.map((source, index) => {
+                const colors = colorClasses[source.color];
+                return (
+                  _react2.default.createElement('div', { key: index, className: `rounded-xl border ${colors.border} overflow-hidden`,}
+                    , _react2.default.createElement('div', { className: `${colors.solid} px-4 py-3 flex items-center gap-3`,}
+                      , _react2.default.createElement('div', { className: "p-1.5 bg-white/20 rounded-lg"  ,}
+                        , source.icon
+                      )
+                      , _react2.default.createElement('div', { className: "flex-1",}
+                        , _react2.default.createElement('span', { className: "font-bold text-white" ,}, source.source)
+                        , _react2.default.createElement('span', { className: "text-white/70 text-sm ml-2"  ,}, "• " , source.time)
+                      )
+                    )
+                    , _react2.default.createElement('div', { className: `${colors.bg} p-4 space-y-3`,}
+                      , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, source.title)
+                      , _react2.default.createElement('p', { className: "text-gray-300 text-sm leading-relaxed"  ,}, source.content)
+                      , _react2.default.createElement('p', { className: "text-gray-500 text-xs italic"  ,}, source.engagement)
+                    )
+                  )
+                );
+              })
+            )
+
+            , _react2.default.createElement('div', { className: "flex justify-center" ,}
+              , _react2.default.createElement('button', {
+                onClick: handleNext,
+                className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
+, "The Internal Meeting"
+
+                , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
+              )
+            )
+          )
+        )
+
+        /* Stage 2: Internal Meeting */
+        , stage === 2 && (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-6 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('div', { className: "flex items-center gap-2 text-white mb-4"    ,}
+                , _react2.default.createElement(_lucidereact.Users, { className: "w-5 h-5" ,} )
+                , _react2.default.createElement('span', { className: "font-bold",}, "Emergency Team Meeting — 11:00 AM"     )
+              )
+              , _react2.default.createElement('div', { className: "space-y-4 text-gray-300" ,}
+                , _react2.default.createElement('p', null, "Priya called an all-hands. The conference room is tense. Everyone's seen the video. Everyone has opinions."
+
+                )
+                , _react2.default.createElement('div', { className: "bg-black/30 rounded-lg p-4 space-y-3"   ,}
+                  , _react2.default.createElement('p', null, _react2.default.createElement('span', { className: "text-amber-400 font-semibold" ,}, "Diana (on speakerphone):"  ), " \"I need to know how this happened. And I need to know it wasn't someone on the current team. Because if our own people are sabotaging us, that changes everything.\""                              )
+
+                  , _react2.default.createElement('p', null, _react2.default.createElement('span', { className: "text-blue-400 font-semibold" ,}, "Alex:"), " \"That build is from before I refactored the netcode. March, maybe? The only people with access to builds that old are... well, it's a short list.\""                          )
+
+                  , _react2.default.createElement('p', null, _react2.default.createElement('span', { className: "text-green-400 font-semibold" ,}, "Priya:"), " \"We all know what everyone's thinking. But we can't publicly accuse Marcus without proof. That's a lawsuit waiting to happen.\""                    )
+
+                  , _react2.default.createElement('p', null, _react2.default.createElement('span', { className: "text-purple-400 font-semibold" ,}, "Jordan (from Discord):"  ), " \"The mods are begging for guidance. Do I tell them to remove posts about Marcus? Do I let people speculate? Right now I'm just telling them to 'stay calm' which is not working.\""                                 )
+                )
+                , _react2.default.createElement('p', null, "Priya looks around the room. \"We have until 3 PM to respond to Kotaku. We need a statement for social media today. And we need to figure out how to handle the Discord without making this worse.\""
+
+                )
+                , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "\"What's our move?\""
+
+                )
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "flex justify-center" ,}
+              , _react2.default.createElement('button', {
+                onClick: handleNext,
+                className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
+, "Today's Decisions"
+
+                , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
+              )
+            )
+          )
+        )
+
+        /* Stage 3: Decisions */
+        , stage === 3 && (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('div', { className: "bg-gradient-to-b from-gray-900 to-gray-950 rounded-xl border border-gray-700 p-6 mb-6"       ,}
+              , _react2.default.createElement('p', { className: "text-white font-bold text-lg mb-4"   ,}, "Three Immediate Decisions"  )
+              , _react2.default.createElement('div', { className: "space-y-4",}
+                , _react2.default.createElement('div', { className: "bg-black/30 rounded-lg p-4 border-l-4 border-amber-500"    ,}
+                  , _react2.default.createElement('p', { className: "text-amber-400 font-semibold mb-2"  ,}, "1. The Press Response"   )
+                  , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "Kotaku's deadline is 3 PM. Do you respond? What do you say about the leak's authenticity, how it happened, and whether Marcus is involved? Saying nothing is a choice—but they'll publish anyway."                               )
+                )
+                , _react2.default.createElement('div', { className: "bg-black/30 rounded-lg p-4 border-l-4 border-purple-500"    ,}
+                  , _react2.default.createElement('p', { className: "text-purple-400 font-semibold mb-2"  ,}, "2. The Public Statement"   )
+                  , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "Social media is on fire. You need to say something. But what? Apologize? Defend the game? Attack the narrative? Show current footage? Every choice has risks."                         )
+                )
+                , _react2.default.createElement('div', { className: "bg-black/30 rounded-lg p-4 border-l-4 border-blue-500"    ,}
+                  , _react2.default.createElement('p', { className: "text-blue-400 font-semibold mb-2"  ,}, "3. The Marcus Question"   )
+                  , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "Everyone suspects Marcus leaked the build. You can't prove it—but the community is already connecting the dots. Do you let that narrative spread? Shut it down? Address it directly?"                            )
+                )
+              )
+            )
+
+            /* Function Assignments */
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-5 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('div', { className: "flex items-center gap-2 mb-4"   ,}
+                , _react2.default.createElement(_lucidereact.Eye, { className: "w-5 h-5 text-gray-400"  ,} )
+                , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "Today's Discussion Focus"  )
+              )
+              , _react2.default.createElement('div', { className: "space-y-3 text-sm" ,}
+                , _react2.default.createElement('p', { className: "text-gray-300",}, _react2.default.createElement('span', { className: "text-amber-400 font-semibold" ,}, "Leadership:"), " You're drafting talking points for Diana's investor call this afternoon. She needs to explain this without causing panic. What's the frame?"                     )
+                , _react2.default.createElement('p', { className: "text-gray-300",}, _react2.default.createElement('span', { className: "text-blue-400 font-semibold" ,}, "Development:"), " Alex can pull together a comparison—leaked build vs. current build. Is that a good idea? What are the risks of showing current footage?"                       )
+                , _react2.default.createElement('p', { className: "text-gray-300",}, _react2.default.createElement('span', { className: "text-purple-400 font-semibold" ,}, "Community:"), " The Kotaku reporter is waiting. What do you tell them—and what do you specifically not tell them?"                 )
+                , _react2.default.createElement('p', { className: "text-gray-300",}, _react2.default.createElement('span', { className: "text-green-400 font-semibold" ,}, "Operations:"), " The team is shaken. Two people have asked if the company is going under. How do you keep people focused when the internet is calling your work a scam?"                             )
+              )
+            )
+
+            /* The Hard Questions */
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-4 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('p', { className: "text-yellow-500 font-semibold text-sm uppercase tracking-wide mb-3"     ,}, "Discussion Questions" )
+              , _react2.default.createElement('div', { className: "space-y-2 text-gray-400 text-sm"  ,}
+                , _react2.default.createElement('p', null, "→ What's the difference between \"no comment\" and strategic silence?"         )
+                , _react2.default.createElement('p', null, "→ If you show the current build, what happens if the YouTuber makes another video comparing them?"                )
+                , _react2.default.createElement('p', null, "→ Can you defend your game without attacking the critic? Should you?"           )
+                , _react2.default.createElement('p', null, "→ What's the legal risk of implying Marcus leaked the build? What's the PR risk of not addressing it?"                  )
+                , _react2.default.createElement('p', null, "→ Is there any version of this where you come out ahead—or is damage control the only goal?"                 )
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "flex justify-center" ,}
+              , _react2.default.createElement('button', {
+                onClick: handleReset,
+                className: "bg-gray-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"       ,}
+, "Reset Presentation"
+
+              )
+            )
+          )
+        )
+
+        /* Progress */
+        , _react2.default.createElement('div', { className: "mt-6 flex justify-center gap-2"   ,}
+          , [0, 1, 2, 3].map((s) => (
+            _react2.default.createElement('div', {
+              key: s,
+              className: `w-2 h-2 rounded-full transition-colors ${s <= stage ? 'bg-white' : 'bg-gray-700'}`,}
+            )
+          ))
+        )
+      )
+    )
+  );
+}
+
+exports. default = Week3DayA;
+</script></head>
+  <body>
+  
+
+<div id="preview-app"></div></body></html>

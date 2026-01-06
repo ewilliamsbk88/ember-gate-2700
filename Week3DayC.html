@@ -1,0 +1,310 @@
+<!DOCTYPE html><html><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta http-equiv="x-dns-prefetch-control" content="off"><script src="https://puc.poecdn.net/authenticated_preview_page/standard.3ef2c256959faf5a756d.js"></script>
+    <meta charset="utf-8">
+    <title>Poe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script><meta name="x-poe-allow-downloads" content="true"><meta name="x-poe-datastore-behavior" content="disabled"><script src="https://puc.poecdn.net/authenticated_preview_page/tw.b9024aecac666455e183.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script><script>Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _react = require('react'); var _react2 = _interopRequireDefault(_react);
+var _lucidereact = require('lucide-react');
+
+function Week3DayC() {
+  const [stage, setStage] = _react2.default.useState(0);
+
+  const handleNext = () => {
+    if (stage < 4) setStage(stage + 1);
+  };
+
+  const handleReset = () => setStage(0);
+
+  const kotakuArticle = {
+    headline: "Shattered Vigil Leak Reveals Early Build, Studio Responds",
+    subhead: "Ember Gate Games addresses viral video showing unfinished gameplay",
+    quotes: [
+      "A representative for Ember Gate confirmed to Kotaku that the leaked build is authentic but outdated, dating from approximately three months ago.",
+      "\"Game development is iterative. What leaked represents a snapshot of work-in-progress from early spring, not the current state of the game,\" the studio said in a statement.",
+      "When asked about former employee Marcus Chen, whose departure last month has been the subject of community speculation, the studio declined to comment on personnel matters but stated they are \"investigating how the build was obtained.\"",
+      "The studio did not provide current footage for comparison, though sources familiar with the project say significant progress has been made since the leaked build."
+    ],
+    tone: "The article is neutral—neither a hit piece nor a defense. It presents both sides but leaves readers to draw conclusions."
+  };
+
+  const communityReactions = [
+    { sentiment: "positive", quote: "At least they didn't try to claim it was fake. Honesty counts for something.", source: "Discord user" },
+    { sentiment: "negative", quote: "\"Investigating how it was obtained\" = they know it was Marcus and won't say it", source: "Twitter reply" },
+    { sentiment: "neutral", quote: "OK but where's the current build footage? If it's so much better, show us.", source: "Reddit comment" },
+    { sentiment: "positive", quote: "The fact that they responded within hours is actually impressive. Most studios would hide.", source: "YouTube comment" },
+    { sentiment: "negative", quote: "Three months ago? That's not that long. Game still might be a mess.", source: "Twitter" }
+  ];
+
+  const functionOutcomes = [
+    {
+      function: "Leadership",
+      color: "amber",
+      title: "Diana Is... Satisfied, Barely",
+      outcome: "Her investor call went okay. The other angels are nervous but not pulling out. She used the talking points about 'development being iterative' and 'this being a lesson in security protocols.'",
+      complication: "But she told Priya privately: 'We get one more surprise. That's it. One more, and I have to start thinking about my exit options.'",
+      nextChallenge: "How do you prevent more surprises when you're not even sure how this one happened?"
+    },
+    {
+      function: "Development",
+      color: "blue",
+      title: "The Comparison Debate Continues",
+      outcome: "You decided not to release comparison footage yet. The risk of nitpicking felt too high. But now people are asking why you didn't—and 'they have something to hide' is becoming a talking point.",
+      complication: "Alex thinks you should do a live stream showing the current build in action. 'Let people see for themselves.' But a live stream could go wrong in a hundred ways.",
+      nextChallenge: "Do you commit to showing the game publicly before launch? And if so, how and when?"
+    },
+    {
+      function: "Community",
+      color: "purple",
+      title: "The Kotaku Article Landed Okay",
+      outcome: "The article was fair. It quoted you accurately. The headline wasn't inflammatory. Some readers saw it as evidence you're being transparent.",
+      complication: "But the YouTuber posted a follow-up video: 'Ember Gate RESPONDS to Leak—But Where's the Footage?' It's already at 18,000 views. He's asking the same question as your community: if the current build is so good, why won't you show it?",
+      nextChallenge: "Do you engage with the YouTuber directly? Ignore him? Try to get other creators to cover your side?"
+    },
+    {
+      function: "Operations",
+      color: "green",
+      title: "The Team Is Holding—For Now",
+      outcome: "Your internal message helped. People appreciated that leadership acknowledged the situation honestly. The explicit ask to stay off social media ('for your own sanity, not just the company's') was received well.",
+      complication: "But the stress is compounding. This is the second major crisis in two weeks. Alex is working 14-hour days on the netcode. Two team members have asked about the company's runway.",
+      nextChallenge: "How do you keep people focused on the work when the noise outside keeps getting louder?"
+    }
+  ];
+
+  const colorClasses = {
+    amber: { bg: "bg-amber-500/20", border: "border-amber-500", text: "text-amber-400", solid: "bg-amber-500" },
+    blue: { bg: "bg-blue-500/20", border: "border-blue-500", text: "text-blue-400", solid: "bg-blue-500" },
+    purple: { bg: "bg-purple-500/20", border: "border-purple-500", text: "text-purple-400", solid: "bg-purple-500" },
+    green: { bg: "bg-green-500/20", border: "border-green-500", text: "text-green-400", solid: "bg-green-500" }
+  };
+
+  return (
+    _react2.default.createElement('div', { className: "min-h-screen bg-gray-950 p-6"  ,}
+      , _react2.default.createElement('div', { className: "max-w-2xl mx-auto" ,}
+        /* Header */
+        , _react2.default.createElement('div', { className: "mb-6",}
+          , _react2.default.createElement('div', { className: "flex items-center gap-2 text-gray-500 mb-2"    ,}
+            , _react2.default.createElement(_lucidereact.Clock, { className: "w-4 h-4" ,} )
+            , _react2.default.createElement('span', { className: "text-sm font-medium uppercase tracking-wide"   ,}, "Week 3, Day C — Ember Gate Studios"       )
+          )
+          , _react2.default.createElement('h1', { className: "text-3xl font-bold text-white mb-1"   ,}, "The Response Goes Live"   )
+          , _react2.default.createElement('p', { className: "text-gray-400",}, "Wednesday morning — 18 hours after your statement"       )
+        )
+
+        /* Stage 0: Kotaku Article */
+        , stage === 0 && (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg overflow-hidden border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('div', { className: "bg-orange-600 px-4 py-2 flex items-center gap-2"     ,}
+                , _react2.default.createElement(_lucidereact.Globe, { className: "w-4 h-4 text-white"  ,} )
+                , _react2.default.createElement('span', { className: "text-white text-sm font-semibold"  ,}, "KOTAKU")
+              )
+              , _react2.default.createElement('div', { className: "p-5",}
+                , _react2.default.createElement('h2', { className: "text-xl font-bold text-white mb-2"   ,}, kotakuArticle.headline)
+                , _react2.default.createElement('p', { className: "text-gray-400 text-sm mb-4"  ,}, kotakuArticle.subhead)
+                , _react2.default.createElement('div', { className: "space-y-3",}
+                  , kotakuArticle.quotes.map((quote, i) => (
+                    _react2.default.createElement('p', { key: i, className: "text-gray-300 text-sm border-l-2 border-gray-700 pl-3 italic"     ,}
+                      , quote
+                    )
+                  ))
+                )
+                , _react2.default.createElement('p', { className: "text-gray-500 text-sm mt-4 pt-4 border-t border-gray-800"     ,}
+                  , kotakuArticle.tone
+                )
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "flex justify-center" ,}
+              , _react2.default.createElement('button', {
+                onClick: handleNext,
+                className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
+, "Community Reaction"
+
+                , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
+              )
+            )
+          )
+        )
+
+        /* Stage 1: Community Reactions */
+        , stage === 1 && (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-5 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('div', { className: "flex items-center gap-2 mb-4"   ,}
+                , _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-5 h-5 text-gray-400"  ,} )
+                , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "How It's Playing"  )
+              )
+              , _react2.default.createElement('div', { className: "space-y-3",}
+                , communityReactions.map((reaction, i) => (
+                  _react2.default.createElement('div', { key: i, className: `flex items-start gap-3 p-3 rounded-lg ${
+                    reaction.sentiment === 'positive' ? 'bg-green-500/10' :
+                    reaction.sentiment === 'negative' ? 'bg-red-500/10' : 'bg-gray-800'
+                  }`,}
+                    , _react2.default.createElement('div', { className: `mt-1 ${
+                      reaction.sentiment === 'positive' ? 'text-green-400' :
+                      reaction.sentiment === 'negative' ? 'text-red-400' : 'text-gray-400'
+                    }`,}
+                      , reaction.sentiment === 'positive' ? _react2.default.createElement(_lucidereact.TrendingUp, { className: "w-4 h-4" ,} ) :
+                       reaction.sentiment === 'negative' ? _react2.default.createElement(_lucidereact.TrendingDown, { className: "w-4 h-4" ,} ) :
+                       _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-4 h-4" ,} )
+                    )
+                    , _react2.default.createElement('div', null
+                      , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "\"", reaction.quote, "\"")
+                      , _react2.default.createElement('p', { className: "text-gray-500 text-xs mt-1"  ,}, "— " , reaction.source)
+                    )
+                  )
+                ))
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-4 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('p', { className: "text-white font-medium mb-2"  ,}, "The Overall Verdict"  )
+              , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "You didn't win the news cycle—but you didn't lose it either. The narrative has shifted from \"Ember Gate is a scam\" to \"Ember Gate is defending itself, but where's the proof?\" That's progress. But you're not out of the woods."
+
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "flex justify-center" ,}
+              , _react2.default.createElement('button', {
+                onClick: handleNext,
+                className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
+, "Function Outcomes"
+
+                , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
+              )
+            )
+          )
+        )
+
+        /* Stage 2: Function Outcomes */
+        , stage === 2 && (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('div', { className: "space-y-4 mb-8" ,}
+              , functionOutcomes.map((outcome, index) => {
+                const colors = colorClasses[outcome.color];
+                return (
+                  _react2.default.createElement('div', { key: index, className: `rounded-xl border ${colors.border} overflow-hidden`,}
+                    , _react2.default.createElement('div', { className: `${colors.solid} px-4 py-3 flex items-center justify-between`,}
+                      , _react2.default.createElement('span', { className: "font-bold text-white" ,}, outcome.function)
+                      , _react2.default.createElement('span', { className: "text-white/80 text-sm" ,}, outcome.title)
+                    )
+                    , _react2.default.createElement('div', { className: `${colors.bg} p-4 space-y-3`,}
+                      , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, outcome.outcome)
+                      , _react2.default.createElement('div', { className: "bg-black/30 rounded-lg p-3"  ,}
+                        , _react2.default.createElement('p', { className: "text-white font-medium text-sm mb-1"   ,}, "The Complication:" )
+                        , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, outcome.complication)
+                      )
+                      , _react2.default.createElement('p', { className: `${colors.text} text-sm italic`,}, "→ " , outcome.nextChallenge)
+                    )
+                  )
+                );
+              })
+            )
+
+            , _react2.default.createElement('div', { className: "flex justify-center" ,}
+              , _react2.default.createElement('button', {
+                onClick: handleNext,
+                className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
+, "Looking Ahead"
+
+                , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
+              )
+            )
+          )
+        )
+
+        /* Stage 3: Week 4 Setup */
+        , stage === 3 && (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-6 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('div', { className: "flex items-center gap-2 mb-4"   ,}
+                , _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-5 h-5 text-green-400"  ,} )
+                , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "Where Things Stand"  )
+              )
+              , _react2.default.createElement('div', { className: "space-y-3 text-gray-300 text-sm"  ,}
+                , _react2.default.createElement('p', null, "The immediate crisis has stabilized. The Kotaku article wasn't a disaster. The community is divided but not in full revolt. The team is stressed but still working."                          )
+                , _react2.default.createElement('p', null, "But you're left with a question that won't go away: "          , _react2.default.createElement('span', { className: "text-white font-medium" ,}, "if the game is really as good as you say, why won't you show it?"              ))
+                , _react2.default.createElement('p', null, "The pressure to do something visible—a stream, a trailer, a playable demo—is building. And launch is in two weeks."                  )
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "flex justify-center" ,}
+              , _react2.default.createElement('button', {
+                onClick: handleNext,
+                className: "flex items-center gap-2 bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors"          ,}
+, "Week 4 Preview"
+
+                , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
+              )
+            )
+          )
+        )
+
+        /* Stage 4: Week 4 Teaser */
+        , stage === 4 && (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('div', { className: "relative",}
+              , _react2.default.createElement('div', { className: "absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-xl blur-xl"       ,})
+              , _react2.default.createElement('div', { className: "relative bg-gray-900 rounded-xl border border-blue-500/50 p-6"     ,}
+                , _react2.default.createElement('div', { className: "flex items-center gap-2 text-blue-400 mb-4"    ,}
+                  , _react2.default.createElement(_lucidereact.Globe, { className: "w-6 h-6" ,} )
+                  , _react2.default.createElement('span', { className: "font-bold uppercase tracking-wide"  ,}, "Week 4: The Stream"   )
+                )
+
+                , _react2.default.createElement('div', { className: "space-y-4 text-gray-300" ,}
+                  , _react2.default.createElement('p', null, "The founders made a decision: it's time to show the game."
+
+                  )
+                  , _react2.default.createElement('p', null, "A live stream. Friday night, one week before launch. Priya playing the first hour of "
+                                   , _react2.default.createElement('span', { className: "text-white font-semibold" ,}, "Shattered Vigil" ), ", taking questions from chat, showing the world what the game actually looks like."
+                  )
+                  , _react2.default.createElement('p', null, "It's a high-risk move. If it goes well, it could turn the narrative around completely. If something breaks on stream—if the netcode fails, if the game crashes, if chat turns hostile—it could be the final nail."
+
+                  )
+                  , _react2.default.createElement('p', { className: "text-blue-400 font-semibold pt-2"  ,}, "You have one week to prepare for the most important hour in Ember Gate's history."
+
+                  )
+                )
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "mt-8 bg-gray-900 rounded-lg p-4 border border-gray-800"     ,}
+              , _react2.default.createElement('p', { className: "text-yellow-500 font-semibold text-sm uppercase tracking-wide mb-2"     ,}, "Coming Up" )
+              , _react2.default.createElement('div', { className: "text-gray-400 text-sm space-y-1"  ,}
+                , _react2.default.createElement('p', null, "→ Planning the stream: format, talking points, contingencies"       )
+                , _react2.default.createElement('p', null, "→ The final push on netcode—will it hold?"       )
+                , _react2.default.createElement('p', null, "→ Managing community expectations before the stream"      )
+                , _react2.default.createElement('p', null, "→ What happens if something goes wrong on live TV?"         )
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "mt-6 flex justify-center"  ,}
+              , _react2.default.createElement('button', {
+                onClick: handleReset,
+                className: "bg-gray-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"       ,}
+, "Reset Presentation"
+
+              )
+            )
+          )
+        )
+
+        /* Progress */
+        , _react2.default.createElement('div', { className: "mt-6 flex justify-center gap-2"   ,}
+          , [0, 1, 2, 3, 4].map((s) => (
+            _react2.default.createElement('div', {
+              key: s,
+              className: `w-2 h-2 rounded-full transition-colors ${s <= stage ? 'bg-white' : 'bg-gray-700'}`,}
+            )
+          ))
+        )
+      )
+    )
+  );
+}
+
+exports. default = Week3DayC;
+</script></head>
+  <body>
+  
+
+<div id="preview-app"></div></body></html>

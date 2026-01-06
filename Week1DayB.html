@@ -1,0 +1,205 @@
+<!DOCTYPE html><html><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta http-equiv="x-dns-prefetch-control" content="off"><script src="https://puc.poecdn.net/authenticated_preview_page/standard.3ef2c256959faf5a756d.js"></script>
+    <meta charset="utf-8">
+    <title>Poe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script><meta name="x-poe-allow-downloads" content="true"><meta name="x-poe-datastore-behavior" content="disabled"><script src="https://puc.poecdn.net/authenticated_preview_page/tw.b9024aecac666455e183.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script><script>Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _react = require('react'); var _react2 = _interopRequireDefault(_react);
+var _lucidereact = require('lucide-react');
+
+function DayBUpdate() {
+  const [currentUpdate, setCurrentUpdate] = _react2.default.useState(0);
+  const [showAll, setShowAll] = _react2.default.useState(false);
+
+  const updates = [
+    {
+      icon: _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-5 h-5" ,} ),
+      source: "Email from Marcus",
+      time: "Yesterday, 6:12 PM",
+      color: "blue",
+      content: "Priya got a response. Marcus said he's \"happy to do a 30-minute call\" but he's \"really busy with onboarding\" and \"doesn't owe anyone anything legally.\" He hasn't scheduled anything yet."
+    },
+    {
+      icon: _react2.default.createElement(_lucidereact.AlertTriangle, { className: "w-5 h-5" ,} ),
+      source: "Text from Diana Reyes (Investor)",
+      time: "Yesterday, 8:34 PM",
+      color: "red",
+      content: "Just saw something on Twitter about Marcus. Call me tomorrow. — Diana"
+    },
+    {
+      icon: _react2.default.createElement(_lucidereact.MessageCircle, { className: "w-5 h-5" ,} ),
+      source: "Discord #general",
+      time: "This morning",
+      color: "purple",
+      content: "Three different users have posted Marcus's tweet. Comments include \"uh oh,\" \"is the game even coming out?\" and \"I literally just preordered yesterday wtf.\""
+    },
+    {
+      icon: _react2.default.createElement(_lucidereact.Code, { className: "w-5 h-5" ,} ),
+      source: "Dev Team Slack",
+      time: "This morning",
+      color: "green",
+      content: "The team tried to open Marcus's last code commit. It's messy. Comments are sparse. Jordan said: \"I can read it, but I don't understand why he built it this way. If something breaks, I'm not sure I can fix it.\""
+    }
+  ];
+
+  const colorClasses = {
+    blue: "bg-blue-500/20 border-blue-500 text-blue-400",
+    red: "bg-red-500/20 border-red-500 text-red-400",
+    purple: "bg-purple-500/20 border-purple-500 text-purple-400",
+    green: "bg-green-500/20 border-green-500 text-green-400"
+  };
+
+  const bgClasses = {
+    blue: "bg-blue-500",
+    red: "bg-red-500",
+    purple: "bg-purple-500",
+    green: "bg-green-500"
+  };
+
+  const handleNext = () => {
+    if (currentUpdate < updates.length - 1) {
+      setCurrentUpdate(currentUpdate + 1);
+    } else {
+      setShowAll(true);
+    }
+  };
+
+  const handleReset = () => {
+    setCurrentUpdate(0);
+    setShowAll(false);
+  };
+
+  return (
+    _react2.default.createElement('div', { className: "min-h-screen bg-gray-950 p-6"  ,}
+      , _react2.default.createElement('div', { className: "max-w-2xl mx-auto" ,}
+        /* Header */
+        , _react2.default.createElement('div', { className: "mb-8",}
+          , _react2.default.createElement('div', { className: "flex items-center gap-2 text-gray-500 mb-2"    ,}
+            , _react2.default.createElement(_lucidereact.Clock, { className: "w-4 h-4" ,} )
+            , _react2.default.createElement('span', { className: "text-sm font-medium uppercase tracking-wide"   ,}, "Ember Gate Studios"  )
+          )
+          , _react2.default.createElement('h1', { className: "text-3xl font-bold text-white mb-1"   ,}, "Tuesday, 4:47 PM"  )
+          , _react2.default.createElement('p', { className: "text-gray-400",}, "36 hours since Marcus's tweet"    )
+        )
+
+        /* Updates */
+        , _react2.default.createElement('div', { className: "space-y-4",}
+          , updates.map((update, index) => {
+            const isVisible = showAll || index <= currentUpdate;
+            const isLatest = !showAll && index === currentUpdate;
+            
+            return (
+              _react2.default.createElement('div', {
+                key: index,
+                className: `transition-all duration-500 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 hidden'
+                }`,}
+
+                , _react2.default.createElement('div', {
+                  className: `rounded-lg border-l-4 p-4 ${colorClasses[update.color]} ${
+                    isLatest ? 'ring-2 ring-white/20' : ''
+                  }`,}
+
+                  , _react2.default.createElement('div', { className: "flex items-start gap-3"  ,}
+                    , _react2.default.createElement('div', { className: `p-2 rounded-lg ${bgClasses[update.color]}`,}
+                      , update.icon
+                    )
+                    , _react2.default.createElement('div', { className: "flex-1",}
+                      , _react2.default.createElement('div', { className: "flex items-center justify-between mb-1"   ,}
+                        , _react2.default.createElement('span', { className: "font-semibold text-white" ,}, update.source)
+                        , _react2.default.createElement('span', { className: "text-xs text-gray-500" ,}, update.time)
+                      )
+                      , _react2.default.createElement('p', { className: "text-gray-300 leading-relaxed" ,}, update.content)
+                    )
+                  )
+                )
+              )
+            );
+          })
+        )
+
+        /* Navigation */
+        , _react2.default.createElement('div', { className: "mt-8 flex justify-center gap-4"   ,}
+          , !showAll ? (
+            _react2.default.createElement('button', {
+              onClick: handleNext,
+              className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
+
+              , currentUpdate < updates.length - 1 ? 'Next Update' : 'Show All'
+              , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
+            )
+          ) : (
+            _react2.default.createElement('button', {
+              onClick: handleReset,
+              className: "flex items-center gap-2 bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors"          ,}
+, "Reset"
+
+            )
+          )
+        )
+
+        /* Progress Dots */
+        , _react2.default.createElement('div', { className: "mt-6 flex justify-center gap-2"   ,}
+          , updates.map((_, index) => (
+            _react2.default.createElement('div', {
+              key: index,
+              className: `w-2 h-2 rounded-full transition-colors ${
+                index <= currentUpdate || showAll ? 'bg-white' : 'bg-gray-700'
+              }`,}
+            )
+          ))
+        )
+
+        /* Instructor Prompt - Only shows when all updates visible */
+        , showAll && (
+          _react2.default.createElement('div', { className: "mt-8 bg-gray-900 rounded-lg p-5 border border-gray-800"     ,}
+            , _react2.default.createElement('p', { className: "text-yellow-500 font-semibold text-sm uppercase tracking-wide mb-3"     ,}, "Now Ask Your Students"
+
+            )
+            , _react2.default.createElement('div', { className: "space-y-3 text-gray-300" ,}
+              , _react2.default.createElement('p', { className: "flex items-start gap-2"  ,}
+                , _react2.default.createElement('span', { className: "text-yellow-500 font-bold" ,}, "→"), "\"What's changed since Monday? What's more urgent now?\""
+
+              )
+              , _react2.default.createElement('p', { className: "flex items-start gap-2"  ,}
+                , _react2.default.createElement('span', { className: "text-yellow-500 font-bold" ,}, "→"), "\"For your function specifically—does this new information change what you need to write?\""
+
+              )
+              , _react2.default.createElement('p', { className: "flex items-start gap-2"  ,}
+                , _react2.default.createElement('span', { className: "text-yellow-500 font-bold" ,}, "→"), "\"You have 40 minutes. Go.\""
+
+              )
+            )
+          )
+        )
+
+        /* Function Reminder Cards */
+        , showAll && (
+          _react2.default.createElement('div', { className: "mt-8 grid grid-cols-2 gap-3"   ,}
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-4 border border-gray-800"    ,}
+              , _react2.default.createElement('h3', { className: "font-bold text-white mb-2"  ,}, "Leadership")
+              , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "Draft your memo to Diana. She texted last night. What do you tell her?"             )
+            )
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-4 border border-gray-800"    ,}
+              , _react2.default.createElement('h3', { className: "font-bold text-white mb-2"  ,}, "Development")
+              , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "Write your technical summary. How bad is the code situation, really?"          )
+            )
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-4 border border-gray-800"    ,}
+              , _react2.default.createElement('h3', { className: "font-bold text-white mb-2"  ,}, "Community")
+              , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "Players are worried. Craft your Discord response—or decide to stay silent."          )
+            )
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-4 border border-gray-800"    ,}
+              , _react2.default.createElement('h3', { className: "font-bold text-white mb-2"  ,}, "Operations")
+              , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "Build your action plan. What happens this week, and who owns it?"           )
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
+exports. default = DayBUpdate;
+</script></head>
+  <body>
+  
+
+<div id="preview-app"></div></body></html>

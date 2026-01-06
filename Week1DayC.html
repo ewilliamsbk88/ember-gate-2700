@@ -1,0 +1,232 @@
+<!DOCTYPE html><html><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta http-equiv="x-dns-prefetch-control" content="off"><script src="https://puc.poecdn.net/authenticated_preview_page/standard.3ef2c256959faf5a756d.js"></script>
+    <meta charset="utf-8">
+    <title>Poe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script><meta name="x-poe-allow-downloads" content="true"><meta name="x-poe-datastore-behavior" content="disabled"><script src="https://puc.poecdn.net/authenticated_preview_page/tw.b9024aecac666455e183.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script><script>Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _react = require('react'); var _react2 = _interopRequireDefault(_react);
+var _lucidereact = require('lucide-react');
+
+function DayCReveal() {
+  const [currentReveal, setCurrentReveal] = _react2.default.useState(-1);
+  const [showTeaser, setShowTeaser] = _react2.default.useState(false);
+
+  const reveals = [
+    {
+      function: "Leadership",
+      icon: _react2.default.createElement(_lucidereact.Phone, { className: "w-6 h-6" ,} ),
+      color: "amber",
+      outcome: "mixed",
+      title: "Diana Called",
+      content: "She was upset you waited 36 hours to loop her in. But she appreciated that you came with a plan, not just panic. She's staying calm—for now.",
+      consequence: "She asked for daily updates until launch. She also asked a question you hadn't considered: \"Is there any chance Marcus took proprietary code with him?\"",
+      question: "Did you think about IP protection? What do you tell her tomorrow?"
+    },
+    {
+      function: "Development",
+      icon: _react2.default.createElement(_lucidereact.FileCode, { className: "w-6 h-6" ,} ),
+      color: "blue",
+      outcome: "warning",
+      title: "Your Summary Helped—And Hurt",
+      content: "The founders finally understand how serious the code situation is. That's good. But now they're asking the hard question.",
+      consequence: "\"Should we delay launch?\" They need a recommendation by Thursday. If you delay, you might run out of money. If you don't, you might ship a broken game.",
+      question: "What do you recommend—and how do you justify it in writing?"
+    },
+    {
+      function: "Community",
+      icon: _react2.default.createElement(_lucidereact.Globe, { className: "w-6 h-6" ,} ),
+      color: "purple",
+      outcome: "escalation",
+      title: "It Spread",
+      content: "Your Discord post calmed some people down. A few users thanked you for being transparent. But then someone screenshot it.",
+      consequence: "It's now on Reddit with the caption \"Ember Gate damage control already starting 👀\" and 200+ upvotes. A gaming journalist from Kotaku just DMed your Twitter asking for comment.",
+      question: "Do you respond to the journalist? What do you say to the Reddit crowd—if anything?"
+    },
+    {
+      function: "Operations",
+      icon: _react2.default.createElement(_lucidereact.ClipboardList, { className: "w-6 h-6" ,} ),
+      color: "green",
+      outcome: "blocked",
+      title: "The Plan Hit a Wall",
+      content: "Your action plan gave the team focus. People know what they're supposed to do. Morale ticked up slightly. But there's a problem.",
+      consequence: "Two of your critical tasks depend on Marcus cooperating. You sent him a meeting invite for the handoff call. He hasn't responded. It's been 18 hours.",
+      question: "What's your backup plan? And how do you communicate the delay to the rest of the team?"
+    }
+  ];
+
+  const colorClasses = {
+    amber: { bg: "bg-amber-500/20", border: "border-amber-500", text: "text-amber-400", solid: "bg-amber-500" },
+    blue: { bg: "bg-blue-500/20", border: "border-blue-500", text: "text-blue-400", solid: "bg-blue-500" },
+    purple: { bg: "bg-purple-500/20", border: "border-purple-500", text: "text-purple-400", solid: "bg-purple-500" },
+    green: { bg: "bg-green-500/20", border: "border-green-500", text: "text-green-400", solid: "bg-green-500" }
+  };
+
+  const outcomeIcons = {
+    mixed: _react2.default.createElement(_lucidereact.AlertCircle, { className: "w-5 h-5 text-amber-400"  ,} ),
+    warning: _react2.default.createElement(_lucidereact.AlertCircle, { className: "w-5 h-5 text-blue-400"  ,} ),
+    escalation: _react2.default.createElement(_lucidereact.XCircle, { className: "w-5 h-5 text-purple-400"  ,} ),
+    blocked: _react2.default.createElement(_lucidereact.XCircle, { className: "w-5 h-5 text-green-400"  ,} )
+  };
+
+  const handleNext = () => {
+    if (currentReveal < reveals.length - 1) {
+      setCurrentReveal(currentReveal + 1);
+    } else {
+      setShowTeaser(true);
+    }
+  };
+
+  const handleReset = () => {
+    setCurrentReveal(-1);
+    setShowTeaser(false);
+  };
+
+  return (
+    _react2.default.createElement('div', { className: "min-h-screen bg-gray-950 p-6"  ,}
+      , _react2.default.createElement('div', { className: "max-w-2xl mx-auto" ,}
+        /* Header */
+        , _react2.default.createElement('div', { className: "mb-8 text-center" ,}
+          , _react2.default.createElement('p', { className: "text-gray-500 text-sm font-medium uppercase tracking-wide mb-2"     ,}, "Ember Gate Studios — End of Week 1"
+
+          )
+          , _react2.default.createElement('h1', { className: "text-3xl font-bold text-white mb-2"   ,}, "What Happened Next"  )
+          , _react2.default.createElement('p', { className: "text-gray-400",}, "The consequences of your communications"    )
+        )
+
+        /* Start Button */
+        , currentReveal === -1 && (
+          _react2.default.createElement('div', { className: "flex justify-center mt-12"  ,}
+            , _react2.default.createElement('button', {
+              onClick: handleNext,
+              className: "flex items-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-200 transition-colors"           ,}
+, "Reveal Outcomes"
+
+              , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-5 h-5" ,} )
+            )
+          )
+        )
+
+        /* Reveals */
+        , _react2.default.createElement('div', { className: "space-y-6",}
+          , reveals.map((reveal, index) => {
+            const isVisible = index <= currentReveal;
+            const colors = colorClasses[reveal.color];
+            
+            return (
+              _react2.default.createElement('div', {
+                key: index,
+                className: `transition-all duration-500 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 hidden'
+                }`,}
+
+                , _react2.default.createElement('div', { className: `rounded-xl border ${colors.border} ${colors.bg} overflow-hidden`,}
+                  /* Header */
+                  , _react2.default.createElement('div', { className: `${colors.solid} px-4 py-3 flex items-center justify-between`,}
+                    , _react2.default.createElement('div', { className: "flex items-center gap-3"  ,}
+                      , reveal.icon
+                      , _react2.default.createElement('span', { className: "font-bold text-white" ,}, reveal.function)
+                    )
+                    , _react2.default.createElement('div', { className: "flex items-center gap-2 bg-black/20 px-3 py-1 rounded-full"      ,}
+                      , outcomeIcons[reveal.outcome]
+                      , _react2.default.createElement('span', { className: "text-white text-sm font-medium"  ,}, reveal.title)
+                    )
+                  )
+
+                  /* Content */
+                  , _react2.default.createElement('div', { className: "p-5 space-y-4" ,}
+                    , _react2.default.createElement('p', { className: "text-gray-200 leading-relaxed" ,}, reveal.content)
+
+                    , _react2.default.createElement('div', { className: "bg-black/30 rounded-lg p-4"  ,}
+                      , _react2.default.createElement('p', { className: "text-white font-medium mb-2"  ,}, "The Complication:" )
+                      , _react2.default.createElement('p', { className: "text-gray-300",}, reveal.consequence)
+                    )
+
+                    , _react2.default.createElement('div', { className: `${colors.text} font-medium italic`,}, "→ "
+                       , reveal.question
+                    )
+                  )
+                )
+              )
+            );
+          })
+        )
+
+        /* Navigation */
+        , currentReveal >= 0 && !showTeaser && (
+          _react2.default.createElement('div', { className: "mt-8 flex justify-center"  ,}
+            , _react2.default.createElement('button', {
+              onClick: handleNext,
+              className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
+
+              , currentReveal < reveals.length - 1 ? 'Next Function' : 'What Comes Next'
+              , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
+            )
+          )
+        )
+
+        /* Progress Dots */
+        , currentReveal >= 0 && (
+          _react2.default.createElement('div', { className: "mt-6 flex justify-center gap-2"   ,}
+            , reveals.map((_, index) => (
+              _react2.default.createElement('div', {
+                key: index,
+                className: `w-2 h-2 rounded-full transition-colors ${
+                  index <= currentReveal ? 'bg-white' : 'bg-gray-700'
+                }`,}
+              )
+            ))
+          )
+        )
+
+        /* Week 2 Teaser */
+        , showTeaser && (
+          _react2.default.createElement('div', { className: "mt-10 relative" ,}
+            , _react2.default.createElement('div', { className: "absolute inset-0 bg-gradient-to-r from-red-500/20 via-orange-500/20 to-red-500/20 rounded-xl blur-xl"       ,})
+            , _react2.default.createElement('div', { className: "relative bg-gray-900 rounded-xl border border-red-500/50 p-6"     ,}
+              , _react2.default.createElement('div', { className: "flex items-center gap-2 text-red-400 mb-4"    ,}
+                , _react2.default.createElement(_lucidereact.AlertCircle, { className: "w-5 h-5" ,} )
+                , _react2.default.createElement('span', { className: "font-bold uppercase tracking-wide text-sm"   ,}, "Coming Next Week"  )
+              )
+
+              , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white mb-4"   ,}, "The Situation Is Getting Worse"    )
+
+              , _react2.default.createElement('div', { className: "space-y-3 text-gray-300" ,}
+                , _react2.default.createElement('p', null, "Marcus finally agreed to that 30-minute call. It didn't go well. He was defensive, evasive, and hung up after 22 minutes."                    )
+
+                , _react2.default.createElement('p', null, "The dev team is now realizing the netcode is more fragile than anyone thought. There are bugs that only Marcus knows how to fix."                       )
+
+                , _react2.default.createElement('p', null, "The founders are meeting tomorrow to decide: "       , _react2.default.createElement('span', { className: "text-white font-semibold" ,}, "Do we delay launch?"   ))
+
+                , _react2.default.createElement('p', { className: "text-red-400 font-medium pt-2"  ,}, "Your function will have a new crisis to navigate. Come ready."          )
+              )
+
+              , _react2.default.createElement('div', { className: "mt-6 flex justify-center"  ,}
+                , _react2.default.createElement('button', {
+                  onClick: handleReset,
+                  className: "bg-gray-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"       ,}
+, "Reset Presentation"
+
+                )
+              )
+            )
+          )
+        )
+
+        /* Instructor Notes */
+        , currentReveal >= 0 && !showTeaser && (
+          _react2.default.createElement('div', { className: "mt-8 bg-gray-900 rounded-lg p-4 border border-gray-800"     ,}
+            , _react2.default.createElement('p', { className: "text-yellow-500 font-semibold text-sm uppercase tracking-wide mb-2"     ,}, "Facilitator Tip" )
+            , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "After revealing each outcome, pause and ask that function's table: \"Did you anticipate this? What would you do differently?\" Let the other tables weigh in too—they're learning from each other's choices."
+
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
+exports. default = DayCReveal;
+</script></head>
+  <body>
+  
+
+<div id="preview-app"></div></body></html>

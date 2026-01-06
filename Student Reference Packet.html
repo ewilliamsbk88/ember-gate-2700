@@ -1,0 +1,755 @@
+<!DOCTYPE html><html><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta http-equiv="x-dns-prefetch-control" content="off"><script src="https://puc.poecdn.net/authenticated_preview_page/standard.3ef2c256959faf5a756d.js"></script>
+    <meta charset="utf-8">
+    <title>Poe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script><meta name="x-poe-allow-downloads" content="true"><meta name="x-poe-datastore-behavior" content="disabled"><script src="https://puc.poecdn.net/authenticated_preview_page/tw.b9024aecac666455e183.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script><script>Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _react = require('react'); var _react2 = _interopRequireDefault(_react);
+var _lucidereact = require('lucide-react');
+
+function StudentHandoutPacket() {
+  const [currentPage, setCurrentPage] = _react2.default.useState(0);
+
+  const pages = [
+    "Cover",
+    "The Company",
+    "The People",
+    "The Product",
+    "The Situation",
+    "Your Role",
+    "The Functions",
+    "Document Types",
+    "Assessment",
+    "Timeline"
+  ];
+
+  const founders = [
+    {
+      name: "Priya Sharma",
+      title: "CEO & Creative Director",
+      background: "Former lead designer at a major studio. Left to build something more personal. The public face of the company—does interviews, writes dev blogs, manages the Discord.",
+      style: "Optimistic, sometimes to a fault. Believes in transparency but struggles with delivering bad news. Tends to over-explain.",
+      image: "PS"
+    },
+    {
+      name: "Alex Chen",
+      title: "CTO",
+      background: "Networking specialist. Built the custom multiplayer architecture that's supposed to be Shattered Vigil's technical edge. More comfortable with code than people.",
+      style: "Direct to the point of bluntness. Dislikes ambiguity. Will push back on anything that feels like 'spin.'",
+      image: "AC"
+    },
+    {
+      name: "Jordan Williams",
+      title: "COO",
+      background: "Former project manager at a startup that failed. Joined Ember Gate to handle 'everything that isn't making the game.' Manages operations, HR, vendor relationships.",
+      style: "Practical and process-oriented. The one who asks 'but have we thought about...' Keeps detailed documentation.",
+      image: "JW"
+    }
+  ];
+
+  const keyStakeholders = [
+    { name: "Diana Reyes", role: "Lead investor (Horizon Ventures)", notes: "Believed in the founders early. Has been patient but expects professionalism. Will be watching closely." },
+    { name: "Marcus Thompson", role: "Senior Developer (departed Week 2)", notes: "Talented but difficult. His exit creates complications." },
+    { name: "StreamerHouse Media", role: "Potential marketing partner", notes: "Mid-sized influencer network. A deal would provide launch visibility." },
+    { name: "The Community", role: "Discord, Reddit, Twitter", notes: "Mix of enthusiastic supporters and skeptics. Quick to react, long memories." },
+    { name: "Gaming Press", role: "Kotaku, PC Gamer, etc.", notes: "Looking for stories. A crisis is more interesting than a launch." }
+  ];
+
+  const functions = [
+    {
+      name: "Leadership",
+      color: "amber",
+      icon: _lucidereact.Star,
+      focus: "Stakeholder management, strategic decisions, investor relations",
+      writes: "Internal strategy memos, investor updates, executive communications",
+      thinks: "How does this affect our relationships? What are the second-order consequences? How do we maintain trust?"
+    },
+    {
+      name: "Development",
+      color: "blue",
+      icon: _lucidereact.Code,
+      focus: "Technical assessment, engineering trade-offs, product readiness",
+      writes: "Technical reports, feasibility assessments, status updates",
+      thinks: "What's actually true? What are the real risks? How do we communicate uncertainty honestly?"
+    },
+    {
+      name: "Community",
+      color: "purple",
+      icon: _lucidereact.MessageSquare,
+      focus: "External communication, public messaging, audience management",
+      writes: "Public statements, social media posts, press responses, talking points",
+      thinks: "How will this be received? What's the narrative? How do we shape perception while staying honest?"
+    },
+    {
+      name: "Operations",
+      color: "green",
+      icon: _lucidereact.Settings,
+      focus: "Internal processes, team coordination, risk mitigation",
+      writes: "Process documentation, contingency plans, internal announcements",
+      thinks: "How do we actually execute this? What could go wrong? How do we keep the team functional?"
+    }
+  ];
+
+  const documentTypes = [
+    {
+      type: "Internal Memo",
+      audience: "Colleagues, leadership",
+      purpose: "Inform, recommend, align",
+      tone: "Direct, professional, can include uncertainty",
+      example: "Recommending a course of action with supporting reasoning"
+    },
+    {
+      type: "Investor Update",
+      audience: "Investors, board members",
+      purpose: "Maintain confidence, provide context, set expectations",
+      tone: "Professional, measured, forward-looking",
+      example: "Explaining a setback while demonstrating competence"
+    },
+    {
+      type: "Public Statement",
+      audience: "Customers, community, general public",
+      purpose: "Address concerns, shape narrative, maintain trust",
+      tone: "Warm but professional, accountable, specific",
+      example: "Announcing a delay or responding to criticism"
+    },
+    {
+      type: "Press Response",
+      audience: "Journalists, quoted in articles",
+      purpose: "Provide quotable material, correct misperceptions",
+      tone: "Concise, memorable, defensible",
+      example: "Responding to a negative story or providing comment"
+    },
+    {
+      type: "Talking Points",
+      audience: "Internal (for someone else to use)",
+      purpose: "Prepare someone for a conversation or appearance",
+      tone: "Practical, anticipatory, includes difficult questions",
+      example: "Preparing a founder for a live stream Q&A"
+    },
+    {
+      type: "Contingency Plan",
+      audience: "Team members who may need to execute",
+      purpose: "Pre-make decisions for crisis scenarios",
+      tone: "Clear, specific, actionable under stress",
+      example: "If X happens, we do Y—with no ambiguity"
+    }
+  ];
+
+  const weekOverview = [
+    {
+      week: 1,
+      title: "The Delay",
+      crisis: "Netcode failure forces a delay decision",
+      focus: "Announcing bad news to different audiences",
+      outputs: "Internal memo, investor update, public announcement"
+    },
+    {
+      week: 2,
+      title: "The Departure",
+      crisis: "Key developer leaves; internal tensions surface",
+      focus: "Internal communication, knowledge management",
+      outputs: "Departure communication, transition plan, team message"
+    },
+    {
+      week: 3,
+      title: "The Leak",
+      crisis: "Internal content leaks; public narrative turns hostile",
+      focus: "Crisis response, media relations",
+      outputs: "Public statement, press response, narrative recovery"
+    },
+    {
+      week: 4,
+      title: "The Stream",
+      crisis: "High-stakes live event with technical risks",
+      focus: "Preparation, live communication, recovery",
+      outputs: "Stakeholder brief, technical report, talking points, contingency plan"
+    }
+  ];
+
+  const assessmentCriteria = [
+    {
+      criterion: "Audience Awareness",
+      weight: "25%",
+      description: "Does the document demonstrate understanding of who will read it and what they need?"
+    },
+    {
+      criterion: "Strategic Clarity",
+      weight: "25%",
+      description: "Is there a clear purpose? Does every element serve that purpose?"
+    },
+    {
+      criterion: "Professional Judgment",
+      weight: "25%",
+      description: "Does the document make defensible choices? Does it acknowledge trade-offs?"
+    },
+    {
+      criterion: "Craft",
+      weight: "25%",
+      description: "Is it well-written? Appropriate tone? Right level of detail? No errors that undermine credibility?"
+    }
+  ];
+
+  const colorClasses = {
+    amber: { bg: "bg-amber-500/20", border: "border-amber-500", text: "text-amber-400", solid: "bg-amber-500" },
+    blue: { bg: "bg-blue-500/20", border: "border-blue-500", text: "text-blue-400", solid: "bg-blue-500" },
+    purple: { bg: "bg-purple-500/20", border: "border-purple-500", text: "text-purple-400", solid: "bg-purple-500" },
+    green: { bg: "bg-green-500/20", border: "border-green-500", text: "text-green-400", solid: "bg-green-500" }
+  };
+
+  const renderPage = () => {
+    switch(currentPage) {
+      case 0: // Cover
+        return (
+          _react2.default.createElement('div', { className: "flex flex-col items-center justify-center py-12 text-center"     ,}
+            , _react2.default.createElement('div', { className: "w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-6 shadow-lg shadow-orange-500/30"           ,}
+              , _react2.default.createElement(_lucidereact.Gamepad2, { className: "w-10 h-10 text-white"  ,} )
+            )
+            , _react2.default.createElement('h1', { className: "text-4xl font-bold text-white mb-2"   ,}, "Ember Gate Studios"  )
+            , _react2.default.createElement('p', { className: "text-gray-400 text-lg mb-8"  ,}, "Crisis Communication Simulation"  )
+            , _react2.default.createElement('div', { className: "bg-gray-800 rounded-xl px-8 py-6 max-w-md"    ,}
+              , _react2.default.createElement('p', { className: "text-white font-semibold mb-2"  ,}, "Student Reference Packet"  )
+              , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "This document contains everything you need to participate in the simulation. Keep it available throughout the course."
+
+              )
+            )
+            , _react2.default.createElement('div', { className: "mt-8 text-gray-500 text-sm"  ,}
+              , _react2.default.createElement('p', null, "4 weeks • 12 sessions • 1 company in crisis"         )
+            )
+          )
+        );
+
+      case 1: // The Company
+        return (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white mb-6"   ,}, "The Company" )
+
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-xl p-6 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('div', { className: "flex items-center gap-4 mb-4"   ,}
+                , _react2.default.createElement('div', { className: "w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center"        ,}
+                  , _react2.default.createElement(_lucidereact.Gamepad2, { className: "w-7 h-7 text-white"  ,} )
+                )
+                , _react2.default.createElement('div', null
+                  , _react2.default.createElement('h3', { className: "text-white font-bold text-xl"  ,}, "Ember Gate Studios"  )
+                  , _react2.default.createElement('p', { className: "text-gray-400",}, "Independent Game Developer • Founded 2021"     )
+                )
+              )
+              , _react2.default.createElement('p', { className: "text-gray-300 leading-relaxed" ,}, "Ember Gate is a 14-person independent game studio based in Austin, Texas. Founded by three industry veterans who left comfortable jobs at major studios to build something of their own. They've spent three years developing their debut title, Shattered Vigil, funded by $2.3M in seed investment."
+
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "grid grid-cols-2 gap-4 mb-6"   ,}
+              , _react2.default.createElement('div', { className: "bg-gray-800 rounded-lg p-4"  ,}
+                , _react2.default.createElement('div', { className: "flex items-center gap-2 mb-2"   ,}
+                  , _react2.default.createElement(_lucidereact.Users, { className: "w-4 h-4 text-blue-400"  ,} )
+                  , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "14 employees" )
+                )
+                , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "Small enough that everyone knows everyone. No room to hide."         )
+              )
+              , _react2.default.createElement('div', { className: "bg-gray-800 rounded-lg p-4"  ,}
+                , _react2.default.createElement('div', { className: "flex items-center gap-2 mb-2"   ,}
+                  , _react2.default.createElement(_lucidereact.DollarSign, { className: "w-4 h-4 text-green-400"  ,} )
+                  , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "$2.3M raised" )
+                )
+                , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "8 months of runway remaining. No room for extended delays."         )
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "bg-amber-500/10 border border-amber-500/50 rounded-lg p-4"    ,}
+              , _react2.default.createElement('p', { className: "text-amber-400 font-semibold mb-2"  ,}, "The Stakes" )
+              , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "This is the founders' one shot. If Shattered Vigil fails, there's no pivot, no next round. The studio closes. Everyone finds new jobs. Three years of work disappears. Every decision in this simulation happens with that weight in the background."
+
+              )
+            )
+          )
+        );
+
+      case 2: // The People
+        return (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white mb-6"   ,}, "The People" )
+
+            , _react2.default.createElement('p', { className: "text-gray-400 mb-6" ,}, "The three founders make all major decisions together, but they have different perspectives and communication styles."               )
+
+            , _react2.default.createElement('div', { className: "space-y-4 mb-6" ,}
+              , founders.map((founder, index) => (
+                _react2.default.createElement('div', { key: index, className: "bg-gray-900 rounded-xl border border-gray-800 overflow-hidden"    ,}
+                  , _react2.default.createElement('div', { className: "p-5",}
+                    , _react2.default.createElement('div', { className: "flex items-start gap-4"  ,}
+                      , _react2.default.createElement('div', { className: "w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-white font-bold flex-shrink-0"           ,}
+                        , founder.image
+                      )
+                      , _react2.default.createElement('div', null
+                        , _react2.default.createElement('p', { className: "text-white font-bold" ,}, founder.name)
+                        , _react2.default.createElement('p', { className: "text-gray-400 text-sm mb-2"  ,}, founder.title)
+                        , _react2.default.createElement('p', { className: "text-gray-300 text-sm mb-2"  ,}, founder.background)
+                        , _react2.default.createElement('p', { className: "text-gray-500 text-sm italic"  ,}, "Style: " , founder.style)
+                      )
+                    )
+                  )
+                )
+              ))
+            )
+
+            , _react2.default.createElement('div', { className: "bg-gray-800 rounded-lg p-4"  ,}
+              , _react2.default.createElement('p', { className: "text-white font-semibold mb-3"  ,}, "Other Key Stakeholders"  )
+              , _react2.default.createElement('div', { className: "space-y-2",}
+                , keyStakeholders.map((stakeholder, index) => (
+                  _react2.default.createElement('div', { key: index, className: "flex items-start gap-2"  ,}
+                    , _react2.default.createElement('div', { className: "w-1.5 h-1.5 rounded-full bg-gray-500 mt-2"    ,} )
+                    , _react2.default.createElement('div', null
+                      , _react2.default.createElement('span', { className: "text-white font-medium" ,}, stakeholder.name)
+                      , _react2.default.createElement('span', { className: "text-gray-500",}, " — "  , stakeholder.role)
+                      , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, stakeholder.notes)
+                    )
+                  )
+                ))
+              )
+            )
+          )
+        );
+
+      case 3: // The Product
+        return (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white mb-6"   ,}, "The Product" )
+
+            , _react2.default.createElement('div', { className: "bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-xl border border-purple-500/50 p-6 mb-6"       ,}
+              , _react2.default.createElement('h3', { className: "text-white font-bold text-xl mb-2"   ,}, "Shattered Vigil" )
+              , _react2.default.createElement('p', { className: "text-gray-300 mb-4" ,}, "A cooperative action-RPG where players defend a mystical sanctuary against waves of corrupted creatures. Think \"Dark Souls meets tower defense\" with seamless drop-in multiplayer."
+
+              )
+              , _react2.default.createElement('div', { className: "grid grid-cols-2 gap-4"  ,}
+                , _react2.default.createElement('div', null
+                  , _react2.default.createElement('p', { className: "text-purple-400 font-semibold text-sm mb-1"   ,}, "Genre")
+                  , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "Co-op Action RPG"  )
+                )
+                , _react2.default.createElement('div', null
+                  , _react2.default.createElement('p', { className: "text-purple-400 font-semibold text-sm mb-1"   ,}, "Platform")
+                  , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "PC (Steam)" )
+                )
+                , _react2.default.createElement('div', null
+                  , _react2.default.createElement('p', { className: "text-purple-400 font-semibold text-sm mb-1"   ,}, "Price Point" )
+                  , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "$29.99")
+                )
+                , _react2.default.createElement('div', null
+                  , _react2.default.createElement('p', { className: "text-purple-400 font-semibold text-sm mb-1"   ,}, "Target")
+                  , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "Souls-like fans, co-op players"   )
+                )
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-5 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('p', { className: "text-white font-semibold mb-3"  ,}, "The Technical Edge"  )
+              , _react2.default.createElement('p', { className: "text-gray-300 text-sm mb-3"  ,}, "The game's selling point is Alex's custom netcode architecture—designed to make multiplayer feel seamless with minimal latency. This is what's supposed to differentiate Shattered Vigil from similar games."
+
+              )
+              , _react2.default.createElement('p', { className: "text-gray-400 text-sm italic"  ,}, "It's also what's causing all the problems."
+
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "bg-gray-800 rounded-lg p-4"  ,}
+              , _react2.default.createElement('p', { className: "text-white font-semibold mb-3"  ,}, "Community Status (as of Week 1)"     )
+              , _react2.default.createElement('div', { className: "space-y-2 text-sm" ,}
+                , _react2.default.createElement('div', { className: "flex justify-between" ,}
+                  , _react2.default.createElement('span', { className: "text-gray-400",}, "Discord members" )
+                  , _react2.default.createElement('span', { className: "text-white",}, "8,400")
+                )
+                , _react2.default.createElement('div', { className: "flex justify-between" ,}
+                  , _react2.default.createElement('span', { className: "text-gray-400",}, "Steam wishlists" )
+                  , _react2.default.createElement('span', { className: "text-white",}, "23,000")
+                )
+                , _react2.default.createElement('div', { className: "flex justify-between" ,}
+                  , _react2.default.createElement('span', { className: "text-gray-400",}, "Twitter followers" )
+                  , _react2.default.createElement('span', { className: "text-white",}, "12,000")
+                )
+                , _react2.default.createElement('div', { className: "flex justify-between" ,}
+                  , _react2.default.createElement('span', { className: "text-gray-400",}, "Subreddit subscribers" )
+                  , _react2.default.createElement('span', { className: "text-white",}, "2,100")
+                )
+              )
+            )
+          )
+        );
+
+      case 4: // The Situation
+        return (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white mb-6"   ,}, "The Situation" )
+
+            , _react2.default.createElement('div', { className: "bg-red-500/10 border border-red-500/50 rounded-xl p-5 mb-6"     ,}
+              , _react2.default.createElement('div', { className: "flex items-center gap-2 mb-3"   ,}
+                , _react2.default.createElement(_lucidereact.AlertTriangle, { className: "w-5 h-5 text-red-400"  ,} )
+                , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "Where We Begin"  )
+              )
+              , _react2.default.createElement('p', { className: "text-gray-300 text-sm mb-3"  ,}, "It's three weeks before the planned launch. The game is content-complete, but the multiplayer netcode—the feature that's supposed to be Shattered Vigil's competitive advantage—is failing stress tests. Not crashing, exactly. Just... unpredictable. Sometimes flawless. Sometimes unplayable."
+
+              )
+              , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "The founders have to make a decision, and then live with the consequences."
+
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-5 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('p', { className: "text-white font-semibold mb-3"  ,}, "The Constraints" )
+              , _react2.default.createElement('div', { className: "space-y-3",}
+                , _react2.default.createElement('div', { className: "flex items-start gap-3"  ,}
+                  , _react2.default.createElement('div', { className: "w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0"       ,}
+                    , _react2.default.createElement(_lucidereact.DollarSign, { className: "w-4 h-4 text-amber-400"  ,} )
+                  )
+                  , _react2.default.createElement('div', null
+                    , _react2.default.createElement('p', { className: "text-white font-medium" ,}, "8 months of runway"   )
+                    , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "Every week of delay costs money with no revenue coming in"          )
+                  )
+                )
+                , _react2.default.createElement('div', { className: "flex items-start gap-3"  ,}
+                  , _react2.default.createElement('div', { className: "w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0"       ,}
+                    , _react2.default.createElement(_lucidereact.Users, { className: "w-4 h-4 text-blue-400"  ,} )
+                  )
+                  , _react2.default.createElement('div', null
+                    , _react2.default.createElement('p', { className: "text-white font-medium" ,}, "Expectant community" )
+                    , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "23,000 wishlists. People are waiting. Patience has limits."       )
+                  )
+                )
+                , _react2.default.createElement('div', { className: "flex items-start gap-3"  ,}
+                  , _react2.default.createElement('div', { className: "w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0"       ,}
+                    , _react2.default.createElement(_lucidereact.Target, { className: "w-4 h-4 text-purple-400"  ,} )
+                  )
+                  , _react2.default.createElement('div', null
+                    , _react2.default.createElement('p', { className: "text-white font-medium" ,}, "Investor expectations" )
+                    , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "Diana Reyes has been patient. How much longer?"       )
+                  )
+                )
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "bg-gray-800 rounded-lg p-4"  ,}
+              , _react2.default.createElement('p', { className: "text-white font-semibold mb-2"  ,}, "Your Challenge" )
+              , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "Over the next four weeks, you'll help Ember Gate navigate a cascading series of crises. Each week brings a new challenge that builds on the previous one. Your job is to write the documents that help the company communicate its way through—to investors, to the public, to the team, and to the press."
+
+              )
+            )
+          )
+        );
+
+      case 5: // Your Role
+        return (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white mb-6"   ,}, "Your Role" )
+
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-xl p-6 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('p', { className: "text-white font-semibold mb-3"  ,}, "You are a consultant"   )
+              , _react2.default.createElement('p', { className: "text-gray-300 text-sm mb-4"  ,}, "You've been brought in to help Ember Gate with communications during a critical period. You're not an employee—you're an outside perspective with professional expertise. The founders trust your judgment, but you don't have authority. You recommend; they decide."
+
+              )
+              , _react2.default.createElement('p', { className: "text-gray-400 text-sm italic"  ,}, "This framing means you can critique the founders' choices while still being on their side. You're trying to help, even when helping means pushing back."
+
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "bg-blue-500/10 border border-blue-500/50 rounded-lg p-5 mb-6"     ,}
+              , _react2.default.createElement('p', { className: "text-blue-400 font-semibold mb-3"  ,}, "What This Means in Practice"    )
+              , _react2.default.createElement('div', { className: "space-y-2 text-gray-300 text-sm"  ,}
+                , _react2.default.createElement('p', null, "→ You write documents that the founders or team will send (not documents from you)"              )
+                , _react2.default.createElement('p', null, "→ You can recommend strategy, but frame it as advice"         )
+                , _react2.default.createElement('p', null, "→ You should consider what the real people would actually say and do"            )
+                , _react2.default.createElement('p', null, "→ You're accountable for professional quality—these documents go out with real consequences"           )
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "bg-gray-800 rounded-lg p-4"  ,}
+              , _react2.default.createElement('p', { className: "text-white font-semibold mb-2"  ,}, "Functional Assignment" )
+              , _react2.default.createElement('p', { className: "text-gray-300 text-sm mb-3"  ,}, "You'll be assigned to one of four functional areas. This determines your primary perspective and the types of documents you focus on. But good communication requires understanding all perspectives—you'll need to consider how other functions would react to your work."
+
+              )
+              , _react2.default.createElement('p', { className: "text-gray-400 text-sm italic"  ,}, "See the next page for function descriptions."
+
+              )
+            )
+          )
+        );
+
+      case 6: // The Functions
+        return (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white mb-6"   ,}, "The Functions" )
+
+            , _react2.default.createElement('div', { className: "space-y-4",}
+              , functions.map((func, index) => {
+                const colors = colorClasses[func.color];
+                const Icon = func.icon;
+                return (
+                  _react2.default.createElement('div', { key: index, className: `rounded-xl border ${colors.border} overflow-hidden`,}
+                    , _react2.default.createElement('div', { className: `${colors.solid} px-4 py-3 flex items-center gap-3`,}
+                      , _react2.default.createElement(Icon, { className: "w-5 h-5 text-white"  ,} )
+                      , _react2.default.createElement('span', { className: "font-bold text-white" ,}, func.name)
+                    )
+                    , _react2.default.createElement('div', { className: `${colors.bg} p-4`,}
+                      , _react2.default.createElement('div', { className: "space-y-3 text-sm" ,}
+                        , _react2.default.createElement('div', null
+                          , _react2.default.createElement('p', { className: "text-white font-medium" ,}, "Focus")
+                          , _react2.default.createElement('p', { className: "text-gray-300",}, func.focus)
+                        )
+                        , _react2.default.createElement('div', null
+                          , _react2.default.createElement('p', { className: "text-white font-medium" ,}, "Writes")
+                          , _react2.default.createElement('p', { className: "text-gray-300",}, func.writes)
+                        )
+                        , _react2.default.createElement('div', null
+                          , _react2.default.createElement('p', { className: "text-white font-medium" ,}, "Key Questions" )
+                          , _react2.default.createElement('p', { className: `${colors.text} italic`,}, "\"", func.thinks, "\"")
+                        )
+                      )
+                    )
+                  )
+                );
+              })
+            )
+          )
+        );
+
+      case 7: // Document Types
+        return (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white mb-6"   ,}, "Document Types" )
+
+            , _react2.default.createElement('p', { className: "text-gray-400 text-sm mb-6"  ,}, "Throughout the simulation, you'll produce different types of professional documents. Each has its own conventions and requirements."
+
+            )
+
+            , _react2.default.createElement('div', { className: "space-y-4",}
+              , documentTypes.map((doc, index) => (
+                _react2.default.createElement('div', { key: index, className: "bg-gray-900 rounded-lg border border-gray-800 overflow-hidden"    ,}
+                  , _react2.default.createElement('div', { className: "bg-gray-800 px-4 py-2"  ,}
+                    , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, doc.type)
+                  )
+                  , _react2.default.createElement('div', { className: "p-4 space-y-2 text-sm"  ,}
+                    , _react2.default.createElement('div', { className: "flex gap-4" ,}
+                      , _react2.default.createElement('div', { className: "w-20 flex-shrink-0" ,}
+                        , _react2.default.createElement('p', { className: "text-gray-500",}, "Audience")
+                      )
+                      , _react2.default.createElement('p', { className: "text-gray-300",}, doc.audience)
+                    )
+                    , _react2.default.createElement('div', { className: "flex gap-4" ,}
+                      , _react2.default.createElement('div', { className: "w-20 flex-shrink-0" ,}
+                        , _react2.default.createElement('p', { className: "text-gray-500",}, "Purpose")
+                      )
+                      , _react2.default.createElement('p', { className: "text-gray-300",}, doc.purpose)
+                    )
+                    , _react2.default.createElement('div', { className: "flex gap-4" ,}
+                      , _react2.default.createElement('div', { className: "w-20 flex-shrink-0" ,}
+                        , _react2.default.createElement('p', { className: "text-gray-500",}, "Tone")
+                      )
+                      , _react2.default.createElement('p', { className: "text-gray-300",}, doc.tone)
+                    )
+                    , _react2.default.createElement('div', { className: "flex gap-4" ,}
+                      , _react2.default.createElement('div', { className: "w-20 flex-shrink-0" ,}
+                        , _react2.default.createElement('p', { className: "text-gray-500",}, "Example")
+                      )
+                      , _react2.default.createElement('p', { className: "text-gray-400 italic" ,}, doc.example)
+                    )
+                  )
+                )
+              ))
+            )
+          )
+        );
+
+      case 8: // Assessment
+        return (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white mb-6"   ,}, "Assessment")
+
+            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-xl p-6 border border-gray-800 mb-6"     ,}
+              , _react2.default.createElement('p', { className: "text-white font-semibold mb-3"  ,}, "How Your Work Will Be Evaluated"     )
+              , _react2.default.createElement('p', { className: "text-gray-300 text-sm mb-4"  ,}, "Every document you produce will be evaluated against four criteria. These apply regardless of document type or function."
+
+              )
+
+              , _react2.default.createElement('div', { className: "space-y-4",}
+                , assessmentCriteria.map((criterion, index) => (
+                  _react2.default.createElement('div', { key: index, className: "bg-gray-800 rounded-lg p-4"  ,}
+                    , _react2.default.createElement('div', { className: "flex justify-between items-center mb-2"   ,}
+                      , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, criterion.criterion)
+                      , _react2.default.createElement('span', { className: "text-purple-400 font-mono text-sm"  ,}, criterion.weight)
+                    )
+                    , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, criterion.description)
+                  )
+                ))
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "bg-amber-500/10 border border-amber-500/50 rounded-lg p-4 mb-6"     ,}
+              , _react2.default.createElement('p', { className: "text-amber-400 font-semibold mb-2"  ,}, "The Standard" )
+              , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "Ask yourself: \"If this document were actually sent, would it achieve its purpose without creating new problems?\" Professional communication isn't about being clever or comprehensive—it's about being effective."
+
+              )
+            )
+
+            , _react2.default.createElement('div', { className: "bg-gray-800 rounded-lg p-4"  ,}
+              , _react2.default.createElement('p', { className: "text-white font-semibold mb-2"  ,}, "What We're Looking For"   )
+              , _react2.default.createElement('div', { className: "space-y-2 text-sm" ,}
+                , _react2.default.createElement('div', { className: "flex items-start gap-2"  ,}
+                  , _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-4 h-4 text-green-400 mt-0.5"   ,} )
+                  , _react2.default.createElement('p', { className: "text-gray-300",}, "Clear thinking about audience and purpose"     )
+                )
+                , _react2.default.createElement('div', { className: "flex items-start gap-2"  ,}
+                  , _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-4 h-4 text-green-400 mt-0.5"   ,} )
+                  , _react2.default.createElement('p', { className: "text-gray-300",}, "Acknowledgment of constraints and trade-offs"    )
+                )
+                , _react2.default.createElement('div', { className: "flex items-start gap-2"  ,}
+                  , _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-4 h-4 text-green-400 mt-0.5"   ,} )
+                  , _react2.default.createElement('p', { className: "text-gray-300",}, "Appropriate tone for context"   )
+                )
+                , _react2.default.createElement('div', { className: "flex items-start gap-2"  ,}
+                  , _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-4 h-4 text-green-400 mt-0.5"   ,} )
+                  , _react2.default.createElement('p', { className: "text-gray-300",}, "No errors that undermine credibility"    )
+                )
+                , _react2.default.createElement('div', { className: "flex items-start gap-2"  ,}
+                  , _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-4 h-4 text-green-400 mt-0.5"   ,} )
+                  , _react2.default.createElement('p', { className: "text-gray-300",}, "Evidence of revision and care"    )
+                )
+              )
+            )
+          )
+        );
+
+      case 9: // Timeline
+        return (
+          _react2.default.createElement('div', null
+            , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white mb-6"   ,}, "Course Timeline" )
+
+            , _react2.default.createElement('div', { className: "space-y-4 mb-8" ,}
+              , weekOverview.map((week, index) => (
+                _react2.default.createElement('div', { key: index, className: "bg-gray-900 rounded-xl border border-gray-800 overflow-hidden"    ,}
+                  , _react2.default.createElement('div', { className: "bg-gray-800 px-4 py-3 flex items-center justify-between"     ,}
+                    , _react2.default.createElement('div', { className: "flex items-center gap-3"  ,}
+                      , _react2.default.createElement('div', { className: "w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center"      ,}
+                        , _react2.default.createElement('span', { className: "text-purple-400 font-bold" ,}, week.week)
+                      )
+                      , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, week.title)
+                    )
+                  )
+                  , _react2.default.createElement('div', { className: "p-4 space-y-2 text-sm"  ,}
+                    , _react2.default.createElement('div', null
+                      , _react2.default.createElement('p', { className: "text-gray-500",}, "Crisis")
+                      , _react2.default.createElement('p', { className: "text-gray-300",}, week.crisis)
+                    )
+                    , _react2.default.createElement('div', null
+                      , _react2.default.createElement('p', { className: "text-gray-500",}, "Focus")
+                      , _react2.default.createElement('p', { className: "text-gray-300",}, week.focus)
+                    )
+                    , _react2.default.createElement('div', null
+                      , _react2.default.createElement('p', { className: "text-gray-500",}, "Key Outputs" )
+                      , _react2.default.createElement('p', { className: "text-gray-300",}, week.outputs)
+                    )
+                  )
+                )
+              ))
+            )
+
+            , _react2.default.createElement('div', { className: "bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl border border-purple-500/50 p-6 text-center"       ,}
+              , _react2.default.createElement('p', { className: "text-white font-bold text-lg mb-2"   ,}, "Ready to Begin"  )
+              , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}, "The simulation starts with a Monday morning meeting. The netcode results are in. They're not good. What happens next is up to you."
+
+              )
+            )
+          )
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  return (
+    _react2.default.createElement('div', { className: "min-h-screen bg-gray-950 p-6"  ,}
+      , _react2.default.createElement('div', { className: "max-w-2xl mx-auto" ,}
+        /* Navigation */
+        , _react2.default.createElement('div', { className: "flex items-center justify-between mb-6"   ,}
+          , _react2.default.createElement('div', { className: "flex items-center gap-2"  ,}
+            , _react2.default.createElement(_lucidereact.BookOpen, { className: "w-5 h-5 text-gray-500"  ,} )
+            , _react2.default.createElement('span', { className: "text-gray-500 text-sm font-medium uppercase tracking-wide"    ,}, "Student Packet" )
+          )
+          , _react2.default.createElement('span', { className: "text-gray-500 text-sm" ,}
+            , currentPage + 1, " / "  , pages.length
+          )
+        )
+
+        /* Page Content */
+        , _react2.default.createElement('div', { className: "bg-gray-900/50 rounded-2xl border border-gray-800 p-6 mb-6 min-h-96"      ,}
+          , renderPage()
+        )
+
+        /* Page Navigation */
+        , _react2.default.createElement('div', { className: "flex items-center justify-between"  ,}
+          , _react2.default.createElement('button', {
+            onClick: () => setCurrentPage(Math.max(0, currentPage - 1)),
+            disabled: currentPage === 0,
+            className: `px-4 py-2 rounded-lg font-medium transition-colors ${
+              currentPage === 0
+                ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
+                : 'bg-gray-800 text-white hover:bg-gray-700'
+            }`,}
+, "Previous"
+
+          )
+
+          , _react2.default.createElement('div', { className: "flex gap-1" ,}
+            , pages.map((_, index) => (
+              _react2.default.createElement('button', {
+                key: index,
+                onClick: () => setCurrentPage(index),
+                className: `w-2 h-2 rounded-full transition-colors ${
+                  index === currentPage ? 'bg-white' : 'bg-gray-700 hover:bg-gray-600'
+                }`,}
+              )
+            ))
+          )
+
+          , _react2.default.createElement('button', {
+            onClick: () => setCurrentPage(Math.min(pages.length - 1, currentPage + 1)),
+            disabled: currentPage === pages.length - 1,
+            className: `px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 ${
+              currentPage === pages.length - 1
+                ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
+                : 'bg-white text-gray-900 hover:bg-gray-200'
+            }`,}
+, "Next"
+
+            , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
+          )
+        )
+
+        /* Table of Contents (collapsed) */
+        , _react2.default.createElement('div', { className: "mt-8",}
+          , _react2.default.createElement('details', { className: "bg-gray-900 rounded-lg border border-gray-800"   ,}
+            , _react2.default.createElement('summary', { className: "px-4 py-3 cursor-pointer text-gray-400 hover:text-white transition-colors"     ,}, "Table of Contents"
+
+            )
+            , _react2.default.createElement('div', { className: "px-4 pb-4 space-y-1"  ,}
+              , pages.map((page, index) => (
+                _react2.default.createElement('button', {
+                  key: index,
+                  onClick: () => setCurrentPage(index),
+                  className: `block w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                    index === currentPage
+                      ? 'bg-purple-500/20 text-purple-400'
+                      : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+                  }`,}
+
+                  , index + 1, ". " , page
+                )
+              ))
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
+exports. default = StudentHandoutPacket;
+</script></head>
+  <body>
+  
+
+<div id="preview-app"></div></body></html>

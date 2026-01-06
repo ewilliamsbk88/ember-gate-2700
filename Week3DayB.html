@@ -1,0 +1,212 @@
+<!DOCTYPE html><html><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta http-equiv="x-dns-prefetch-control" content="off"><script src="https://puc.poecdn.net/authenticated_preview_page/standard.3ef2c256959faf5a756d.js"></script>
+    <meta charset="utf-8">
+    <title>Poe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script><meta name="x-poe-allow-downloads" content="true"><meta name="x-poe-datastore-behavior" content="disabled"><script src="https://puc.poecdn.net/authenticated_preview_page/tw.b9024aecac666455e183.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script><script>Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _react = require('react'); var _react2 = _interopRequireDefault(_react);
+var _lucidereact = require('lucide-react');
+
+function Week3DayB() {
+  const [showPrompts, setShowPrompts] = _react2.default.useState(false);
+
+  const draftingTasks = [
+    {
+      function: "Leadership",
+      color: "amber",
+      document: "Investor Talking Points",
+      recipient: "Diana Reyes (for her board update call)",
+      context: "Diana has a call with two other angel investors at 4 PM. They've seen the YouTube video. She needs talking points that acknowledge the situation without suggesting the company is doomed.",
+      keyQuestions: [
+        "How do you frame a leak as a survivable setback rather than a death spiral?",
+        "What commitments can you credibly make right now?",
+        "How do you address the 'is this a scam' narrative without sounding defensive?"
+      ]
+    },
+    {
+      function: "Development",
+      color: "blue",
+      document: "Build Comparison Brief",
+      recipient: "Internal team + potential public use",
+      context: "Alex can create side-by-side footage: leaked build vs. current build. But you need to decide if this is a good idea—and if so, how to frame it. A comparison could backfire if people nitpick the current build.",
+      keyQuestions: [
+        "What's the risk of showing current footage? What if it's not impressive enough?",
+        "If you don't show anything, what does that silence communicate?",
+        "How technical should the explanation be? Who's the real audience?"
+      ]
+    },
+    {
+      function: "Community",
+      color: "purple",
+      document: "Press Response",
+      recipient: "Kotaku journalist (3 PM deadline)",
+      context: "The reporter asked three questions: Is the leak authentic? How did it happen? Is there a connection to Marcus? You don't have to answer all three—but you have to respond with something.",
+      keyQuestions: [
+        "What's the cost of confirming the leak is real? Of denying it?",
+        "Can you say 'we're investigating how this happened' without implying you know?",
+        "What happens if you decline to comment on Marcus and they print that?"
+      ]
+    },
+    {
+      function: "Operations",
+      color: "green",
+      document: "Internal Team Message",
+      recipient: "All Ember Gate employees",
+      context: "The team is rattled. People are reading the YouTube comments. Two developers asked if they should start job hunting. You need to acknowledge the crisis while preventing a spiral.",
+      keyQuestions: [
+        "How honest should you be about the severity of the situation?",
+        "What specific actions can you point to that show leadership is handling this?",
+        "How do you ask people to stay off social media without sounding controlling?"
+      ]
+    }
+  ];
+
+  const colorClasses = {
+    amber: { bg: "bg-amber-500/20", border: "border-amber-500", text: "text-amber-400", solid: "bg-amber-500" },
+    blue: { bg: "bg-blue-500/20", border: "border-blue-500", text: "text-blue-400", solid: "bg-blue-500" },
+    purple: { bg: "bg-purple-500/20", border: "border-purple-500", text: "text-purple-400", solid: "bg-purple-500" },
+    green: { bg: "bg-green-500/20", border: "border-green-500", text: "text-green-400", solid: "bg-green-500" }
+  };
+
+  return (
+    _react2.default.createElement('div', { className: "min-h-screen bg-gray-950 p-6"  ,}
+      , _react2.default.createElement('div', { className: "max-w-2xl mx-auto" ,}
+        /* Header */
+        , _react2.default.createElement('div', { className: "mb-6",}
+          , _react2.default.createElement('div', { className: "flex items-center gap-2 text-gray-500 mb-2"    ,}
+            , _react2.default.createElement(_lucidereact.Clock, { className: "w-4 h-4" ,} )
+            , _react2.default.createElement('span', { className: "text-sm font-medium uppercase tracking-wide"   ,}, "Week 3, Day B — Ember Gate Studios"       )
+          )
+          , _react2.default.createElement('h1', { className: "text-3xl font-bold text-white mb-1"   ,}, "Drafting Under Pressure"  )
+          , _react2.default.createElement('p', { className: "text-gray-400",}, "Tuesday, 12:30 PM — Less than 3 hours until the Kotaku deadline"           )
+        )
+
+        /* Countdown */
+        , _react2.default.createElement('div', { className: "bg-red-500/10 border border-red-500/50 rounded-lg p-4 mb-8 flex items-center justify-between"        ,}
+          , _react2.default.createElement('div', { className: "flex items-center gap-3"  ,}
+            , _react2.default.createElement(_lucidereact.AlertCircle, { className: "w-6 h-6 text-red-400"  ,} )
+            , _react2.default.createElement('div', null
+              , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "Kotaku Deadline" )
+              , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "They publish with or without your comment"      )
+            )
+          )
+          , _react2.default.createElement('div', { className: "text-right",}
+            , _react2.default.createElement('p', { className: "text-red-400 font-bold text-2xl"  ,}, "2.5 hours" )
+          )
+        )
+
+        /* The Complication */
+        , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-5 border border-gray-800 mb-6"     ,}
+          , _react2.default.createElement('div', { className: "flex items-center gap-2 mb-3"   ,}
+            , _react2.default.createElement(_lucidereact.Zap, { className: "w-5 h-5 text-yellow-400"  ,} )
+            , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "New Development" )
+          )
+          , _react2.default.createElement('p', { className: "text-gray-300 mb-3" ,}, "While you were in the morning meeting, Marcus posted on his personal Twitter:"
+
+          )
+          , _react2.default.createElement('div', { className: "bg-black/40 rounded-lg p-4 border-l-4 border-yellow-500"    ,}
+            , _react2.default.createElement('p', { className: "text-gray-300 italic" ,}, "\"Funny how when you get pushed out of a company, suddenly everyone wants to blame you for everything. I didn't leak anything. But I'm also not going to pretend that build doesn't show the truth about where that game really is. 🍿\""
+
+            )
+            , _react2.default.createElement('p', { className: "text-gray-500 text-sm mt-2"  ,}, "— @MarcusChenDev, 11:47 AM • 234 retweets"      )
+          )
+          , _react2.default.createElement('p', { className: "text-gray-400 text-sm mt-3"  ,}, "He's not admitting to the leak—but he's not denying it either. And he's validating the \"the game isn't ready\" narrative."
+
+          )
+        )
+
+        /* Drafting Tasks */
+        , _react2.default.createElement('div', { className: "space-y-4 mb-8" ,}
+          , draftingTasks.map((task, index) => {
+            const colors = colorClasses[task.color];
+            return (
+              _react2.default.createElement('div', { key: index, className: `rounded-xl border ${colors.border} overflow-hidden`,}
+                , _react2.default.createElement('div', { className: `${colors.solid} px-4 py-3 flex items-center justify-between`,}
+                  , _react2.default.createElement('div', { className: "flex items-center gap-2"  ,}
+                    , _react2.default.createElement(_lucidereact.FileText, { className: "w-4 h-4" ,} )
+                    , _react2.default.createElement('span', { className: "font-bold text-white" ,}, task.function)
+                  )
+                  , _react2.default.createElement('span', { className: "text-white/80 text-sm" ,}, task.document)
+                )
+                , _react2.default.createElement('div', { className: `${colors.bg} p-4`,}
+                  , _react2.default.createElement('p', { className: "text-gray-400 text-sm mb-2"  ,}
+                    , _react2.default.createElement('span', { className: "text-white font-medium" ,}, "To:"), " " , task.recipient
+                  )
+                  , _react2.default.createElement('p', { className: "text-gray-300 text-sm mb-3"  ,}, task.context)
+                  , _react2.default.createElement('div', { className: "bg-black/30 rounded-lg p-3"  ,}
+                    , _react2.default.createElement('p', { className: `${colors.text} text-xs font-semibold uppercase tracking-wide mb-2`,}, "Key Questions" )
+                    , _react2.default.createElement('ul', { className: "space-y-1",}
+                      , task.keyQuestions.map((q, i) => (
+                        _react2.default.createElement('li', { key: i, className: "text-gray-400 text-sm" ,}, "→ " , q)
+                      ))
+                    )
+                  )
+                )
+              )
+            );
+          })
+        )
+
+        /* Toggle Coaching Prompts */
+        , _react2.default.createElement('div', { className: "flex justify-center mb-6"  ,}
+          , _react2.default.createElement('button', {
+            onClick: () => setShowPrompts(!showPrompts),
+            className: "flex items-center gap-2 bg-gray-800 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-gray-700 transition-colors"          ,}
+
+            , _react2.default.createElement(_lucidereact.MessageSquare, { className: "w-4 h-4" ,} )
+            , showPrompts ? 'Hide' : 'Show', " Coaching Prompts"
+          )
+        )
+
+        /* Coaching Prompts */
+        , showPrompts && (
+          _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-5 border border-gray-800 mb-6"     ,}
+            , _react2.default.createElement('p', { className: "text-yellow-500 font-semibold text-sm uppercase tracking-wide mb-4"     ,}, "While They're Writing"  )
+            , _react2.default.createElement('div', { className: "space-y-4",}
+              , _react2.default.createElement('div', null
+                , _react2.default.createElement('p', { className: "text-white font-medium mb-2"  ,}, "For vague or hedging drafts:"    )
+                , _react2.default.createElement('ul', { className: "space-y-1 text-gray-400 text-sm"  ,}
+                  , _react2.default.createElement('li', null, "→ \"If I'm the Kotaku reporter, what's my headline based on this response?\""            )
+                  , _react2.default.createElement('li', null, "→ \"You're using a lot of passive voice. Who's responsible here?\""          )
+                  , _react2.default.createElement('li', null, "→ \"This sounds like a legal document. Is that the tone you want?\""            )
+                )
+              )
+              , _react2.default.createElement('div', null
+                , _react2.default.createElement('p', { className: "text-white font-medium mb-2"  ,}, "For overly aggressive drafts:"   )
+                , _react2.default.createElement('ul', { className: "space-y-1 text-gray-400 text-sm"  ,}
+                  , _react2.default.createElement('li', null, "→ \"If Marcus screenshots this and posts it, how does that play?\""           )
+                  , _react2.default.createElement('li', null, "→ \"You're attacking the YouTuber. What does that look like to neutral observers?\""            )
+                  , _react2.default.createElement('li', null, "→ \"Is being right more important than being effective?\""        )
+                )
+              )
+              , _react2.default.createElement('div', null
+                , _react2.default.createElement('p', { className: "text-white font-medium mb-2"  ,}, "For everyone:" )
+                , _react2.default.createElement('ul', { className: "space-y-1 text-gray-400 text-sm"  ,}
+                  , _react2.default.createElement('li', null, "→ \"What's the one thing you need this audience to believe after reading this?\""             )
+                  , _react2.default.createElement('li', null, "→ \"Read your first sentence out loud. Would you keep reading?\""          )
+                  , _react2.default.createElement('li', null, "→ \"What are you not saying—and is that strategic or evasive?\""          )
+                )
+              )
+            )
+          )
+        )
+
+        /* The Meta-Lesson */
+        , _react2.default.createElement('div', { className: "bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-lg p-5 border border-purple-500/30"      ,}
+          , _react2.default.createElement('div', { className: "flex items-center gap-2 mb-3"   ,}
+            , _react2.default.createElement(_lucidereact.Shield, { className: "w-5 h-5 text-purple-400"  ,} )
+            , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "The Deeper Challenge"  )
+          )
+          , _react2.default.createElement('p', { className: "text-gray-300 text-sm leading-relaxed"  ,}, "Every document today is speaking to multiple audiences at once. The press statement will be read by players. The internal memo might leak. The investor talking points might need to become public later. Students should be thinking: "
+                                                 , _react2.default.createElement('span', { className: "text-white italic" ,}, "who else might see this, and what happens if they do?"          )
+          )
+        )
+      )
+    )
+  );
+}
+
+exports. default = Week3DayB;
+</script></head>
+  <body>
+  
+
+<div id="preview-app"></div></body></html>

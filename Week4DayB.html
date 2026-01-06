@@ -1,0 +1,261 @@
+<!DOCTYPE html><html><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta http-equiv="x-dns-prefetch-control" content="off"><script src="https://puc.poecdn.net/authenticated_preview_page/standard.3ef2c256959faf5a756d.js"></script>
+    <meta charset="utf-8">
+    <title>Poe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script><meta name="x-poe-allow-downloads" content="true"><meta name="x-poe-datastore-behavior" content="disabled"><script src="https://puc.poecdn.net/authenticated_preview_page/tw.b9024aecac666455e183.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script><script>Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _react = require('react'); var _react2 = _interopRequireDefault(_react);
+var _lucidereact = require('lucide-react');
+
+function Week4DayB() {
+  const [activeDoc, setActiveDoc] = _react2.default.useState(0);
+  const [showCoaching, setShowCoaching] = _react2.default.useState(false);
+
+  const documents = [
+    {
+      function: "Leadership",
+      color: "amber",
+      title: "Pre-Stream Stakeholder Brief",
+      recipient: "Diana Reyes + other investors",
+      purpose: "Set expectations before the stream so that success is defined clearly",
+      sections: [
+        {
+          heading: "What to Include",
+          items: [
+            "What the stream is designed to accomplish",
+            "What success looks like (specific, measurable)",
+            "What could go wrong and how you'll handle it",
+            "What you need from investors (patience, no public commentary)"
+          ]
+        },
+        {
+          heading: "The Challenge",
+          content: "You're asking investors to watch something that could fail publicly. How do you frame this as calculated confidence rather than recklessness?"
+        }
+      ]
+    },
+    {
+      function: "Development",
+      color: "blue",
+      title: "Technical Readiness Report",
+      recipient: "Priya + founding team",
+      purpose: "Honest assessment of what can be shown safely",
+      sections: [
+        {
+          heading: "What to Include",
+          items: [
+            "Current netcode stability (test results, failure rates)",
+            "Recommended 'safe path' through the demo",
+            "Known risks and their likelihood",
+            "Go/no-go recommendation with clear reasoning"
+          ]
+        },
+        {
+          heading: "The Challenge",
+          content: "Your job is to tell the truth about technical risk without either sugarcoating or catastrophizing. The founders need to make an informed decision. What do they actually need to know?"
+        }
+      ]
+    },
+    {
+      function: "Community",
+      color: "purple",
+      title: "Stream Preparation Package",
+      recipient: "Priya (the on-camera host)",
+      purpose: "Everything Priya needs to succeed on camera",
+      sections: [
+        {
+          heading: "What to Include",
+          items: [
+            "Opening monologue (first 60 seconds)",
+            "Key talking points and messages to reinforce",
+            "Anticipated hard questions and suggested responses",
+            "Topics to avoid and redirect language",
+            "Moderation guidelines for chat team"
+          ]
+        },
+        {
+          heading: "The Challenge",
+          content: "Priya is a game developer, not a streamer. How do you prepare her to sound natural while staying on message? How much scripting is too much?"
+        }
+      ]
+    },
+    {
+      function: "Operations",
+      color: "green",
+      title: "Stream Contingency Playbook",
+      recipient: "Everyone involved in stream production",
+      purpose: "If X happens, we do Y",
+      sections: [
+        {
+          heading: "What to Include",
+          items: [
+            "Role assignments (who does what during stream)",
+            "Escalation thresholds (when does a problem become a crisis?)",
+            "Specific scenarios and responses (game crash, netcode fail, hostile chat, etc.)",
+            "Kill switch protocol (who decides to end early, what's said)"
+          ]
+        },
+        {
+          heading: "The Challenge",
+          content: "You're writing a document that you hope never gets used. But if it does, there won't be time to think. Every instruction needs to be clear enough to follow under pressure."
+        }
+      ]
+    }
+  ];
+
+  const coachingPrompts = {
+    "Leadership": [
+      "You're listing risks without explaining how you'll handle them. That makes investors more nervous, not less.",
+      "What's the one metric Diana should watch for to know if the stream worked?",
+      "You're asking for trust. What have you done to earn it?"
+    ],
+    "Development": [
+      "You say the netcode is 'probably fine.' Would you bet the company on 'probably'?",
+      "Your safe path avoids all the interesting parts of the game. What does that tell viewers?",
+      "If you had to give a percentage chance of failure, what would it be? Now write that down."
+    ],
+    "Community": [
+      "Read your opening out loud. Does it sound like a person or a press release?",
+      "You've prepared answers for easy questions. What about 'Why should we trust you after the leak?'",
+      "Your moderation plan bans anyone who mentions Marcus. How does that look when people notice?"
+    ],
+    "Operations": [
+      "Your contingency for 'game crashes' is 'restart and apologize.' What if it crashes again?",
+      "You have three people who can call off the stream. That's two too many. Who's actually in charge?",
+      "You've planned for technical failures. What about human failures—Priya freezes, chat finds something embarrassing?"
+    ]
+  };
+
+  const currentDoc = documents[activeDoc];
+  const colors = {
+    amber: { bg: "bg-amber-500/20", border: "border-amber-500", text: "text-amber-400", solid: "bg-amber-500" },
+    blue: { bg: "bg-blue-500/20", border: "border-blue-500", text: "text-blue-400", solid: "bg-blue-500" },
+    purple: { bg: "bg-purple-500/20", border: "border-purple-500", text: "text-purple-400", solid: "bg-purple-500" },
+    green: { bg: "bg-green-500/20", border: "border-green-500", text: "text-green-400", solid: "bg-green-500" }
+  };
+
+  return (
+    _react2.default.createElement('div', { className: "min-h-screen bg-gray-950 p-6"  ,}
+      , _react2.default.createElement('div', { className: "max-w-2xl mx-auto" ,}
+        /* Header */
+        , _react2.default.createElement('div', { className: "mb-6",}
+          , _react2.default.createElement('div', { className: "flex items-center gap-2 text-gray-500 mb-2"    ,}
+            , _react2.default.createElement(_lucidereact.Clock, { className: "w-4 h-4" ,} )
+            , _react2.default.createElement('span', { className: "text-sm font-medium uppercase tracking-wide"   ,}, "Week 4, Day B — Ember Gate Studios"       )
+          )
+          , _react2.default.createElement('h1', { className: "text-3xl font-bold text-white mb-1"   ,}, "Preparation Documents" )
+          , _react2.default.createElement('p', { className: "text-gray-400",}, "Wednesday — Two days until the stream"      )
+        )
+
+        /* Countdown */
+        , _react2.default.createElement('div', { className: "bg-purple-500/10 border border-purple-500/50 rounded-lg p-4 mb-6 flex items-center justify-between"        ,}
+          , _react2.default.createElement('div', { className: "flex items-center gap-3"  ,}
+            , _react2.default.createElement(_lucidereact.Video, { className: "w-6 h-6 text-purple-400"  ,} )
+            , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "Stream goes live Friday 7 PM"     )
+          )
+          , _react2.default.createElement('p', { className: "text-purple-400 font-bold text-xl"  ,}, "48 hours" )
+        )
+
+        /* Document Tabs */
+        , _react2.default.createElement('div', { className: "flex gap-2 mb-6 overflow-x-auto pb-2"    ,}
+          , documents.map((doc, index) => {
+            const c = colors[doc.color];
+            return (
+              _react2.default.createElement('button', {
+                key: index,
+                onClick: () => setActiveDoc(index),
+                className: `px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-all ${
+                  activeDoc === index
+                    ? `${c.solid} text-white`
+                    : `${c.bg} ${c.text} border ${c.border}`
+                }`,}
+
+                , doc.function
+              )
+            );
+          })
+        )
+
+        /* Active Document */
+        , _react2.default.createElement('div', { className: `rounded-xl border ${colors[currentDoc.color].border} overflow-hidden mb-6`,}
+          , _react2.default.createElement('div', { className: `${colors[currentDoc.color].solid} px-5 py-4`,}
+            , _react2.default.createElement('div', { className: "flex items-center gap-2 mb-1"   ,}
+              , _react2.default.createElement(_lucidereact.FileText, { className: "w-5 h-5 text-white"  ,} )
+              , _react2.default.createElement('span', { className: "font-bold text-white text-lg"  ,}, currentDoc.title)
+            )
+            , _react2.default.createElement('p', { className: "text-white/80 text-sm" ,}, "To: " , currentDoc.recipient)
+          )
+          , _react2.default.createElement('div', { className: `${colors[currentDoc.color].bg} p-5`,}
+            , _react2.default.createElement('p', { className: "text-gray-300 mb-4" ,}
+              , _react2.default.createElement('span', { className: "text-white font-medium" ,}, "Purpose:"), " " , currentDoc.purpose
+            )
+
+            , currentDoc.sections.map((section, i) => (
+              _react2.default.createElement('div', { key: i, className: "mb-4 last:mb-0" ,}
+                , _react2.default.createElement('p', { className: "text-white font-medium mb-2"  ,}, section.heading)
+                , section.items ? (
+                  _react2.default.createElement('ul', { className: "space-y-1.5",}
+                    , section.items.map((item, j) => (
+                      _react2.default.createElement('li', { key: j, className: "flex items-start gap-2 text-gray-300 text-sm"    ,}
+                        , _react2.default.createElement('div', { className: `w-1.5 h-1.5 rounded-full ${colors[currentDoc.color].solid} mt-2`,} )
+                        , item
+                      )
+                    ))
+                  )
+                ) : (
+                  _react2.default.createElement('div', { className: "bg-black/30 rounded-lg p-3"  ,}
+                    , _react2.default.createElement('p', { className: "text-gray-400 text-sm italic"  ,}, section.content)
+                  )
+                )
+              )
+            ))
+          )
+        )
+
+        /* Coaching Toggle */
+        , _react2.default.createElement('div', { className: "flex justify-center mb-6"  ,}
+          , _react2.default.createElement('button', {
+            onClick: () => setShowCoaching(!showCoaching),
+            className: "flex items-center gap-2 bg-gray-800 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-gray-700 transition-colors"          ,}
+
+            , _react2.default.createElement(_lucidereact.MessageSquare, { className: "w-4 h-4" ,} )
+            , showCoaching ? 'Hide' : 'Show', " Coaching Prompts"
+          )
+        )
+
+        /* Coaching Prompts */
+        , showCoaching && (
+          _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-5 border border-gray-800 mb-6"     ,}
+            , _react2.default.createElement('p', { className: "text-yellow-500 font-semibold text-sm uppercase tracking-wide mb-3"     ,}, "For "
+               , currentDoc.function, " Drafts"
+            )
+            , _react2.default.createElement('div', { className: "space-y-2",}
+              , coachingPrompts[currentDoc.function].map((prompt, i) => (
+                _react2.default.createElement('p', { key: i, className: "text-gray-400 text-sm" ,}, "→ \"" , prompt, "\"")
+              ))
+            )
+          )
+        )
+
+        /* The Meta Point */
+        , _react2.default.createElement('div', { className: "bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-lg p-5 border border-purple-500/30"      ,}
+          , _react2.default.createElement('div', { className: "flex items-center gap-2 mb-3"   ,}
+            , _react2.default.createElement(_lucidereact.Shield, { className: "w-5 h-5 text-purple-400"  ,} )
+            , _react2.default.createElement('p', { className: "text-white font-semibold" ,}, "The Skill Being Practiced"   )
+          )
+          , _react2.default.createElement('p', { className: "text-gray-300 text-sm leading-relaxed mb-3"   ,}, "These documents aren't just preparation—they're risk mitigation through clarity. A good contingency plan doesn't just list scenarios; it makes decisions in advance so that stressed people don't have to think in the moment."
+
+          )
+          , _react2.default.createElement('p', { className: "text-gray-300 text-sm leading-relaxed"  ,}, "Push students to be specific. \"We'll handle it professionally\" is not a plan. \"Jordan says 'We're aware of the issue and working on it' while Alex attempts a restart, and if two restart attempts fail within 60 seconds, Priya says 'We're going to take a short break' and we cut to a holding screen\"—that's a plan."
+
+          )
+        )
+      )
+    )
+  );
+}
+
+exports. default = Week4DayB;
+</script></head>
+  <body>
+  
+
+<div id="preview-app"></div></body></html>
