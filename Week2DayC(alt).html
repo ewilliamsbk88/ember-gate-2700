@@ -2,7 +2,11 @@
     <meta charset="utf-8">
     <title>Poe</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-  <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script><meta name="x-poe-allow-downloads" content="true"><meta name="x-poe-datastore-behavior" content="disabled"><script src="https://puc.poecdn.net/authenticated_preview_page/tw.b9024aecac666455e183.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script><script>Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _react = require('react'); var _react2 = _interopRequireDefault(_react);
+  <script src="https://puc.poecdn.net/authenticated_preview_page/disableWebRTC.9710cebe07429a9e8e06.js"></script><meta name="x-poe-allow-downloads" content="true"><meta name="x-poe-datastore-behavior" content="disabled"><script src="https://puc.poecdn.net/authenticated_preview_page/tw.b9024aecac666455e183.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/deps.faccd16000d314dc16d5.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/exports.b0f0f482cdeb5302b0b9.js"></script><script src="https://puc.poecdn.net/authenticated_preview_page/renderer.75c73ae6b4235f62945a.js"></script><script>
+Object.defineProperty(exports, "__esModule", { value: true });
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _react = require('react');
+var _react2 = _interopRequireDefault(_react);
 var _lucidereact = require('lucide-react');
 
 function Week2DayC() {
@@ -60,218 +64,263 @@ function Week2DayC() {
     green: { bg: "bg-green-500/20", border: "border-green-500", text: "text-green-400", solid: "bg-green-500" }
   };
 
-  return (
-    _react2.default.createElement('div', { className: "min-h-screen bg-gray-950 p-6"  ,}
-      , _react2.default.createElement('div', { className: "max-w-2xl mx-auto" ,}
-        /* Header */
-        , _react2.default.createElement('div', { className: "mb-6",}
-          , _react2.default.createElement('div', { className: "flex items-center gap-2 text-gray-500 mb-2"    ,}
-            , _react2.default.createElement(_lucidereact.Clock, { className: "w-4 h-4" ,} )
-            , _react2.default.createElement('span', { className: "text-sm font-medium uppercase tracking-wide"   ,}, "Week 2, Day C — Ember Gate Studios"       )
+  const header = _react2.default.createElement(
+    'div',
+    { className: "mb-6" },
+    _react2.default.createElement(
+      'div',
+      { className: "flex items-center gap-2 text-gray-500 mb-2" },
+      _react2.default.createElement(_lucidereact.Clock, { className: "w-4 h-4" }),
+      _react2.default.createElement('span', { className: "text-sm font-medium uppercase tracking-wide" }, "Week 2, Day C — Ember Gate Studios")
+    ),
+    _react2.default.createElement('h1', { className: "text-3xl font-bold text-white mb-1" }, "The Decision"),
+    _react2.default.createElement('p', { className: "text-gray-400" }, "Thursday, 4:30 PM — The meeting just ended.")
+  );
+
+  const stageZero = _react2.default.createElement(
+    'div',
+    { className: "flex flex-col items-center justify-center py-12" },
+    _react2.default.createElement(
+      'div',
+      { className: "w-20 h-20 rounded-full bg-amber-500/20 flex items-center justify-center mb-6" },
+      _react2.default.createElement(_lucidereact.Calendar, { className: "w-10 h-10 text-amber-400" })
+    ),
+    _react2.default.createElement('p', { className: "text-gray-400 text-center mb-6 max-w-md" }, "The founders met for two hours. They read every recommendation. They argued. They ran the numbers three times."),
+    _react2.default.createElement('p', { className: "text-gray-400 text-center mb-8 max-w-md" }, "They made a decision."),
+    _react2.default.createElement(
+      'button',
+      {
+        onClick: handleNext,
+        className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+      },
+      "See the Decision",
+      _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" })
+    )
+  );
+
+  const stageOne = _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: "bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-xl border border-amber-500/50 p-8 mb-8" },
+      _react2.default.createElement(
+        'div',
+        { className: "flex items-center justify-center gap-3 mb-6" },
+        _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-8 h-8 text-amber-400" }),
+        _react2.default.createElement('h2', { className: "text-2xl font-bold text-white" }, "Launch Delayed")
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: "text-center space-y-4 text-gray-300" },
+        _react2.default.createElement(
+          'p',
+          { className: "text-lg" },
+          "New launch date: ",
+          _react2.default.createElement('span', { className: "text-white font-bold" }, "Three weeks from Friday")
+        ),
+        _react2.default.createElement('p', null, "The founders decided the risk of shipping broken netcode was too high. A failed launch could kill the studio. A delayed launch is survivable."),
+        _react2.default.createElement('p', { className: "text-amber-400 font-medium" }, "The StreamerHouse deal is on hold. They're \"willing to wait\" but made no promises.")
+      )
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: "bg-gray-900 rounded-lg p-5 border border-gray-800 mb-8" },
+      _react2.default.createElement('p', { className: "text-white font-semibold mb-3" }, "What Swayed Them:"),
+      _react2.default.createElement(
+        'div',
+        { className: "space-y-2 text-gray-400 text-sm" },
+        _react2.default.createElement('p', null, "→ Development's math on concurrent users was sound—but Marcus never documented where the load balancer actually breaks, and \"probably fine\" isn't a number the founders could bet a public launch on."),
+        _react2.default.createElement('p', null, "→ Community was right that rough launches are survivable—but this launch's whole pitch is the multiplayer system, and that's not the piece they could afford to gamble on."),
+        _react2.default.createElement('p', null, "→ Leadership's momentum argument was real—but the founders weighed a delay's cost against what a public failure would do to Diana's confidence, and the failure cost more."),
+        _react2.default.createElement('p', null, "→ Operations was right that more waiting has a price—but it was smaller than the price of asking a tired team to clean up a public failure under worse conditions than they're in today.")
+      )
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: "flex justify-center" },
+      _react2.default.createElement(
+        'button',
+        {
+          onClick: handleNext,
+          className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+        },
+        "See Function Outcomes",
+        _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" })
+      )
+    )
+  );
+
+  const stageTwo = _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: "space-y-4 mb-8" },
+      functionOutcomes.map((outcome, index) => {
+        const colors = colorClasses[outcome.color];
+        return _react2.default.createElement(
+          'div',
+          { key: index, className: `rounded-xl border ${colors.border} ${colors.bg} overflow-hidden` },
+          _react2.default.createElement(
+            'div',
+            { className: `${colors.solid} px-4 py-3 flex items-center justify-between` },
+            _react2.default.createElement('span', { className: "font-bold text-white" }, outcome.function),
+            _react2.default.createElement('span', { className: "text-white/80 text-sm" }, outcome.title)
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: "p-4 space-y-3" },
+            _react2.default.createElement('p', { className: "text-gray-300" }, outcome.content),
+            _react2.default.createElement(
+              'div',
+              { className: "bg-black/30 rounded-lg p-3" },
+              _react2.default.createElement(
+                'p',
+                { className: "text-gray-400 text-sm" },
+                _react2.default.createElement('span', { className: "text-white font-medium" }, "The Complication:"),
+                " ",
+                outcome.complication
+              )
+            ),
+            _react2.default.createElement('p', { className: `${colors.text} text-sm font-medium italic` }, "→ ", outcome.question)
           )
-          , _react2.default.createElement('h1', { className: "text-3xl font-bold text-white mb-1"   ,}, "The Decision" )
-          , _react2.default.createElement('p', { className: "text-gray-400",}, "Thursday, 4:30 PM — The meeting just ended."       )
-        )
+        );
+      })
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: "flex justify-center" },
+      _react2.default.createElement(
+        'button',
+        {
+          onClick: handleNext,
+          className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+        },
+        "What Comes Next",
+        _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" })
+      )
+    )
+  );
 
-        /* Stage 0: The Announcement */
-        , stage === 0 && (
-          _react2.default.createElement('div', { className: "flex flex-col items-center justify-center py-12"    ,}
-            , _react2.default.createElement('div', { className: "w-20 h-20 rounded-full bg-amber-500/20 flex items-center justify-center mb-6"       ,}
-              , _react2.default.createElement(_lucidereact.Calendar, { className: "w-10 h-10 text-amber-400"  ,} )
-            )
-            , _react2.default.createElement('p', { className: "text-gray-400 text-center mb-6 max-w-md"   ,}, "The founders met for two hours. They read every recommendation. They argued. They ran the numbers three times."
+  const stageThree = _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: "bg-gray-900 rounded-lg p-6 border border-gray-800 mb-6" },
+      _react2.default.createElement(
+        'div',
+        { className: "flex items-center gap-2 text-green-400 mb-4" },
+        _react2.default.createElement(_lucidereact.TrendingUp, { className: "w-5 h-5" }),
+        _react2.default.createElement('span', { className: "font-bold" }, "The Good News")
+      ),
+      _react2.default.createElement('p', { className: "text-gray-300 mb-4" }, "It's been five days since the delay announcement. The community took it better than expected. Preorder cancellations slowed. Alex says the netcode fix is on track. Morale is cautiously optimistic."),
+      _react2.default.createElement('p', { className: "text-gray-300" }, "For the first time in two weeks, it feels like Ember Gate might actually make it.")
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: "flex justify-center mb-8" },
+      _react2.default.createElement(
+        'button',
+        {
+          onClick: handleNext,
+          className: "flex items-center gap-2 bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors"
+        },
+        "And Then...",
+        _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" })
+      )
+    )
+  );
 
-            )
-            , _react2.default.createElement('p', { className: "text-gray-400 text-center mb-8 max-w-md"   ,}, "They made a decision."
-
-            )
-            , _react2.default.createElement('button', {
-              onClick: handleNext,
-              className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
-, "See the Decision"
-
-              , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
-            )
-          )
-        )
-
-        /* Stage 1: The Decision */
-        , stage === 1 && (
-          _react2.default.createElement('div', null
-            , _react2.default.createElement('div', { className: "bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-xl border border-amber-500/50 p-8 mb-8"       ,}
-              , _react2.default.createElement('div', { className: "flex items-center justify-center gap-3 mb-6"    ,}
-                , _react2.default.createElement(_lucidereact.CheckCircle, { className: "w-8 h-8 text-amber-400"  ,} )
-                , _react2.default.createElement('h2', { className: "text-2xl font-bold text-white"  ,}, "Launch Delayed" )
-              )
-              , _react2.default.createElement('div', { className: "text-center space-y-4 text-gray-300"  ,}
-                , _react2.default.createElement('p', { className: "text-lg",}, "New launch date: "   , _react2.default.createElement('span', { className: "text-white font-bold" ,}, "Three weeks from Friday"   ))
-                , _react2.default.createElement('p', null, "The founders decided the risk of shipping broken netcode was too high. A failed launch could kill the studio. A delayed launch is survivable."                       )
-                , _react2.default.createElement('p', { className: "text-amber-400 font-medium" ,}, "The StreamerHouse deal is on hold. They're \"willing to wait\" but made no promises."             )
-              )
-            )
-
-            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-5 border border-gray-800 mb-8"     ,}
-              , _react2.default.createElement('p', { className: "text-white font-semibold mb-3"  ,}, "What Swayed Them:"  )
-              , _react2.default.createElement('div', { className: "space-y-2 text-gray-400 text-sm"  ,}
-                , _react2.default.createElement('p', null, "→ Development's math on concurrent users was sound—but Marcus never documented where the load balancer actually breaks, and "probably fine" isn't a number the founders could bet a public launch on.\"" )                    )
-                , _react2.default.createElement('p', null, "→ Community was right that rough launches are survivable—but this launch's whole pitch is the multiplayer system, and that's not the piece they could afford to gamble on."                  )
-                , _react2.default.createElement('p', null, "→ Leadership's momentum argument was real—but the founders weighed a delay's cost against what a public failure would do to Diana's confidence, and the failure cost more."                 )
-                , _react2.default.createElement('p', null, "→Operations was right that more waiting has a price—but it was smaller than the price of asking a tired team to clean up a public failure under worse conditions than they're in today."              )
-              )
-            )
-
-            , _react2.default.createElement('div', { className: "flex justify-center" ,}
-              , _react2.default.createElement('button', {
-                onClick: handleNext,
-                className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
-, "See Function Outcomes"
-
-                , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
-              )
-            )
-          )
-        )
-
-        /* Stage 2: Function Outcomes */
-        , stage === 2 && (
-          _react2.default.createElement('div', null
-            , _react2.default.createElement('div', { className: "space-y-4 mb-8" ,}
-              , functionOutcomes.map((outcome, index) => {
-                const colors = colorClasses[outcome.color];
-                return (
-                  _react2.default.createElement('div', { key: index, className: `rounded-xl border ${colors.border} ${colors.bg} overflow-hidden`,}
-                    , _react2.default.createElement('div', { className: `${colors.solid} px-4 py-3 flex items-center justify-between`,}
-                      , _react2.default.createElement('span', { className: "font-bold text-white" ,}, outcome.function)
-                      , _react2.default.createElement('span', { className: "text-white/80 text-sm" ,}, outcome.title)
-                    )
-                    , _react2.default.createElement('div', { className: "p-4 space-y-3" ,}
-                      , _react2.default.createElement('p', { className: "text-gray-300",}, outcome.content)
-                      , _react2.default.createElement('div', { className: "bg-black/30 rounded-lg p-3"  ,}
-                        , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, _react2.default.createElement('span', { className: "text-white font-medium" ,}, "The Complication:" ), " " , outcome.complication)
-                      )
-                      , _react2.default.createElement('p', { className: `${colors.text} text-sm font-medium italic`,}, "→ " , outcome.question)
-                    )
-                  )
-                );
-              })
-            )
-
-            , _react2.default.createElement('div', { className: "flex justify-center" ,}
-              , _react2.default.createElement('button', {
-                onClick: handleNext,
-                className: "flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"          ,}
-, "What Comes Next"
-
-                , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
-              )
-            )
-          )
-        )
-
-        /* Stage 3: Week 3 Teaser */
-        , stage === 3 && (
-          _react2.default.createElement('div', null
-            , _react2.default.createElement('div', { className: "bg-gray-900 rounded-lg p-6 border border-gray-800 mb-6"     ,}
-              , _react2.default.createElement('div', { className: "flex items-center gap-2 text-green-400 mb-4"    ,}
-                , _react2.default.createElement(_lucidereact.TrendingUp, { className: "w-5 h-5" ,} )
-                , _react2.default.createElement('span', { className: "font-bold",}, "The Good News"  )
-              )
-              , _react2.default.createElement('p', { className: "text-gray-300 mb-4" ,}, "It's been five days since the delay announcement. The community took it better than expected. Preorder cancellations slowed. Alex says the netcode fix is on track. Morale is cautiously optimistic."
-
-              )
-              , _react2.default.createElement('p', { className: "text-gray-300",}, "For the first time in two weeks, it feels like Ember Gate might actually make it."
-
-              )
-            )
-
-            , _react2.default.createElement('div', { className: "flex justify-center mb-8"  ,}
-              , _react2.default.createElement('button', {
-                onClick: handleNext,
-                className: "flex items-center gap-2 bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors"          ,}
-, "And Then..."
-
-                , _react2.default.createElement(_lucidereact.ChevronRight, { className: "w-4 h-4" ,} )
-              )
-            )
-          )
-        )
-
-        /* Stage 4: The Leak */
-        , stage === 4 && (
-          _react2.default.createElement('div', null
-            , _react2.default.createElement('div', { className: "relative",}
-              , _react2.default.createElement('div', { className: "absolute inset-0 bg-gradient-to-r from-red-500/30 via-red-600/20 to-red-500/30 rounded-xl blur-xl"       ,})
-              , _react2.default.createElement('div', { className: "relative bg-gray-900 rounded-xl border border-red-500 p-6"     ,}
-                , _react2.default.createElement('div', { className: "flex items-center gap-2 text-red-400 mb-4"    ,}
-                  , _react2.default.createElement(_lucidereact.AlertTriangle, { className: "w-6 h-6" ,} )
-                  , _react2.default.createElement('span', { className: "font-bold uppercase tracking-wide"  ,}, "Week 3: The Leak"   )
-                )
-
-                , _react2.default.createElement('div', { className: "space-y-4 text-gray-300" ,}
-                  , _react2.default.createElement('p', null, "Tuesday morning. A link appears in the Ember Gate Discord."
-
-                  )
-                  , _react2.default.createElement('p', null, "It's a piracy site. Someone has uploaded a build of "
-                              , _react2.default.createElement('span', { className: "text-white font-semibold" ,}, "Shattered Vigil" ), "."
-                  )
-                  , _react2.default.createElement('p', null, "Not the current build—an old one. Buggy. Placeholder art. Missing features. Dated from three months ago."
-
-                  )
-                  , _react2.default.createElement('p', null, "Within hours, a YouTuber with 200,000 subscribers posts a video titled:"
-
-                  )
-                  , _react2.default.createElement('p', { className: "text-xl text-white font-bold text-center py-4"    ,}, "\"I Played the LEAKED Shattered Vigil Build—Is This Game a SCAM?\""
-
-                  )
-                  , _react2.default.createElement('p', null, "The video has 15,000 views and climbing. The comments are brutal. Screenshots are spreading on Twitter. Gaming journalists are sending DMs."
-
-                  )
-                  , _react2.default.createElement('p', { className: "text-red-400 font-semibold pt-2"  ,}, "And someone in your Discord just asked: \"Wasn't Marcus the only one with access to old builds?\""
-
-                  )
-                )
-              )
-            )
-
-            , _react2.default.createElement('div', { className: "mt-8 bg-gray-900 rounded-lg p-4 border border-gray-800"     ,}
-              , _react2.default.createElement('p', { className: "text-yellow-500 font-semibold text-sm uppercase tracking-wide mb-2"     ,}, "Next Week" )
-              , _react2.default.createElement('p', { className: "text-gray-400 text-sm" ,}, "The crisis is now public. Students will shift from internal communication to external crisis management—press statements, community damage control, and deciding whether to publicly accuse Marcus."
-
-              )
-            )
-
-            , _react2.default.createElement('div', { className: "mt-6 flex justify-center"  ,}
-              , _react2.default.createElement('button', {
-                onClick: handleReset,
-                className: "bg-gray-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"       ,}
-, "Reset Presentation"
-
-              )
-            )
-          )
-        )
-
-        /* Progress Dots */
-        , stage > 0 && (
-          _react2.default.createElement('div', { className: "mt-6 flex justify-center gap-2"   ,}
-            , [1, 2, 3, 4].map((s) => (
-              _react2.default.createElement('div', {
-                key: s,
-                className: `w-2 h-2 rounded-full transition-colors ${
-                  s <= stage ? 'bg-white' : 'bg-gray-700'
-                }`,}
-              )
-            ))
-          )
+  const stageFour = _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: "relative" },
+      _react2.default.createElement('div', { className: "absolute inset-0 bg-gradient-to-r from-red-500/30 via-red-600/20 to-red-500/30 rounded-xl blur-xl" }),
+      _react2.default.createElement(
+        'div',
+        { className: "relative bg-gray-900 rounded-xl border border-red-500 p-6" },
+        _react2.default.createElement(
+          'div',
+          { className: "flex items-center gap-2 text-red-400 mb-4" },
+          _react2.default.createElement(_lucidereact.AlertTriangle, { className: "w-6 h-6" }),
+          _react2.default.createElement('span', { className: "font-bold uppercase tracking-wide" }, "Week 3: The Leak")
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: "space-y-4 text-gray-300" },
+          _react2.default.createElement('p', null, "Tuesday morning. A link appears in the Ember Gate Discord."),
+          _react2.default.createElement(
+            'p',
+            null,
+            "It's a piracy site. Someone has uploaded a build of ",
+            _react2.default.createElement('span', { className: "text-white font-semibold" }, "Shattered Vigil"),
+            "."
+          ),
+          _react2.default.createElement('p', null, "Not the current build—an old one. Buggy. Placeholder art. Missing features. Dated from three months ago."),
+          _react2.default.createElement('p', null, "Within hours, a YouTuber with 200,000 subscribers posts a video titled:"),
+          _react2.default.createElement('p', { className: "text-xl text-white font-bold text-center py-4" }, "\"I Played the LEAKED Shattered Vigil Build—Is This Game a SCAM?\""),
+          _react2.default.createElement('p', null, "The video has 15,000 views and climbing. The comments are brutal. Screenshots are spreading on Twitter. Gaming journalists are sending DMs."),
+          _react2.default.createElement('p', { className: "text-red-400 font-semibold pt-2" }, "And someone in your Discord just asked: \"Wasn't Marcus the only one with access to old builds?\"")
         )
       )
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: "mt-8 bg-gray-900 rounded-lg p-4 border border-gray-800" },
+      _react2.default.createElement('p', { className: "text-yellow-500 font-semibold text-sm uppercase tracking-wide mb-2" }, "Next Week"),
+      _react2.default.createElement('p', { className: "text-gray-400 text-sm" }, "The crisis is now public. Students will shift from internal communication to external crisis management—press statements, community damage control, and deciding whether to publicly accuse Marcus.")
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: "mt-6 flex justify-center" },
+      _react2.default.createElement(
+        'button',
+        {
+          onClick: handleReset,
+          className: "bg-gray-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"
+        },
+        "Reset Presentation"
+      )
+    )
+  );
+
+  const progressDots = _react2.default.createElement(
+    'div',
+    { className: "mt-6 flex justify-center gap-2" },
+    [1, 2, 3, 4].map((s) => _react2.default.createElement('div', {
+      key: s,
+      className: `w-2 h-2 rounded-full transition-colors ${s <= stage ? 'bg-white' : 'bg-gray-700'}`
+    }))
+  );
+
+  let currentStage = null;
+  if (stage === 0) currentStage = stageZero;
+  else if (stage === 1) currentStage = stageOne;
+  else if (stage === 2) currentStage = stageTwo;
+  else if (stage === 3) currentStage = stageThree;
+  else if (stage === 4) currentStage = stageFour;
+
+  return _react2.default.createElement(
+    'div',
+    { className: "min-h-screen bg-gray-950 p-6" },
+    _react2.default.createElement(
+      'div',
+      { className: "max-w-2xl mx-auto" },
+      header,
+      currentStage,
+      stage > 0 && progressDots
     )
   );
 }
 
-exports. default = Week2DayC;
-</script></head>
+exports.default = Week2DayC;
+</script>
+
+</head>
   <body>
-  
 
 <div id="preview-app"></div></body></html>
