@@ -32,6 +32,16 @@ function SlackAndTwitterMockup() {
 , "Marcus's Tweet"
 
           )
+          , _react2.default.createElement('button', {
+            onClick: () => setView('goodbye'),
+            className: `px-4 py-2 rounded-lg font-medium transition-colors ${
+              view === 'goodbye'
+                ? 'bg-green-600 text-white'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+            }`,}
+, "Marcus's Message"
+
+          )
         )
 
         /* Slack Thread */
@@ -169,22 +179,12 @@ function SlackAndTwitterMockup() {
               /* Tweet Text */
               , _react2.default.createElement('div', { className: "mt-4",}
                 , _react2.default.createElement('p', { className: "text-white text-xl leading-relaxed"  ,}, "Excited to announce that I've accepted a position as Senior Network Engineer at Titan Interactive. Ready for this next chapter. Grateful for everything that got me here. 🚀"
-          , _react2.default.createElement('button', {
-            onClick: () => setView('goodbye'),
-            className: `px-4 py-2 rounded-lg font-medium transition-colors ${
-              view === 'goodbye'
-                ? 'bg-green-600 text-white'
-                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-            }`,}
-, "Marcus's Message"
-
-          )
                 )
               )
 
               /* Timestamp */
               , _react2.default.createElement('div', { className: "mt-4 pt-4 border-t border-gray-800"   ,}
-                , _react2.default.createElement('span', { className: "text-gray-500",}, "8:47 AM · Mon, Jan 13, 2026"      )
+                , _react2.default.createElement('span', { className: "text-gray-500",}, "8:47 AM · Mon, Jan 12, 2026"      )
               )
 
               /* Engagement Stats */
