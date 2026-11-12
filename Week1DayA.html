@@ -169,7 +169,16 @@ function SlackAndTwitterMockup() {
               /* Tweet Text */
               , _react2.default.createElement('div', { className: "mt-4",}
                 , _react2.default.createElement('p', { className: "text-white text-xl leading-relaxed"  ,}, "Excited to announce that I've accepted a position as Senior Network Engineer at Titan Interactive. Ready for this next chapter. Grateful for everything that got me here. 🚀"
+          , _react2.default.createElement('button', {
+            onClick: () => setView('goodbye'),
+            className: `px-4 py-2 rounded-lg font-medium transition-colors ${
+              view === 'goodbye'
+                ? 'bg-green-600 text-white'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+            }`,}
+, "Marcus's Message"
 
+          )
                 )
               )
 
@@ -190,15 +199,42 @@ function SlackAndTwitterMockup() {
             )
           )
         )
-
+        /* Marcus's goodbye in #general */
+        , view === 'goodbye' && (
+          _react2.default.createElement('div', { className: "bg-gray-800 rounded-lg overflow-hidden shadow-xl"   ,}
+            , _react2.default.createElement('div', { className: "bg-gray-900 px-4 py-3 border-b border-gray-700"    ,}
+              , _react2.default.createElement('div', { className: "flex items-center gap-2"  ,}
+                , _react2.default.createElement('span', { className: "text-gray-400 text-lg" ,}, "#")
+                , _react2.default.createElement('span', { className: "text-white font-semibold" ,}, "general")
+              )
+            )
+            , _react2.default.createElement('div', { className: "p-4 space-y-4" ,}
+              , _react2.default.createElement('div', { className: "flex gap-3" ,}
+                , _react2.default.createElement('div', { className: "w-10 h-10 rounded bg-indigo-600 flex items-center justify-center text-white font-bold flex-shrink-0"         ,}, "M"
+                )
+                , _react2.default.createElement('div', null
+                  , _react2.default.createElement('div', { className: "flex items-baseline gap-2"  ,}
+                    , _react2.default.createElement('span', { className: "text-white font-semibold" ,}, "Marcus Chen" )
+                    , _react2.default.createElement('span', { className: "text-gray-500 text-xs" ,}, "8:51 AM" )
+                  )
+                  , _react2.default.createElement('p', { className: "text-gray-300 mt-1" ,}, "Not going to make a speech. Everything's in the repo, built exactly the way it was specced.")
+                  , _react2.default.createElement('p', { className: "text-gray-300 mt-3" ,}, "Do yourselves a favor and look at the load balancer before anyone says the word \"launch.\" Or don't. That's not my call anymore.")
+                  , _react2.default.createElement('p', { className: "text-gray-300 mt-3" ,}, "Good luck. Genuinely.")
+                )
+              )
+              , _react2.default.createElement('p', { className: "text-gray-500 text-sm italic text-center"   ,}, "Marcus Chen left #general")
+            )
+          )
+        )
         /* Instructor Note */
         , _react2.default.createElement('div', { className: "mt-6 bg-gray-800 rounded-lg p-4 border-l-4 border-yellow-500"     ,}
           , _react2.default.createElement('p', { className: "text-yellow-500 font-semibold text-sm uppercase tracking-wide mb-1"     ,}, "Instructor Note" )
           , _react2.default.createElement('p', { className: "text-gray-300 text-sm" ,}
-            , view === 'slack' 
+                      , view === 'slack' 
               ? "Let students read this silently, then ask: \"What's happening here? What do you notice?\" Give them a moment to react before revealing the tweet."
-              : "After revealing this, pause. Let the weight of it land. Then ask: \"If you worked at Ember Gate, what would you be feeling right now?\""
-            
+              : view === 'tweet'
+              ? "After revealing this, pause. Let the weight of it land. Then ask: \"If you worked at Ember Gate, what would you be feeling right now?\" Then reveal Marcus's message."
+              : "This was posted four minutes after the tweet, under the morning standup thread, so the team only finds it now. Ask: \"Is this a warning, a threat, or a goodbye? What in the wording makes you say that?\" Do not tell them which."
           )
         )
       )
